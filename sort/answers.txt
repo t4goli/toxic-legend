@@ -1,4 +1,4 @@
-sort1 uses: Selection Sort
+sort1 uses: Bubble Sort
 
 How do you know?: Takes less time in smaller lists but is slower comparatively to the other two
 
@@ -6,7 +6,7 @@ sort2 uses: Merge Sort
 
 How do you know?: Takes the least amount of time in the largest random list
 
-sort3 uses: Bubble Sort
+sort3 uses: Selection Sort
 
 How do you know?: Takes the least amount of time on the largest, already sorted list
 
