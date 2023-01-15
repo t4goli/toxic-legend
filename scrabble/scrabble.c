@@ -28,9 +28,9 @@ int compute_score(string word)
 
     for (int i = 0; i < 26; i++)
     {
-        if (w[i].isupper)
+        if (isupper(word[i]))
         {
-            
+            for (int j = 0; j , 2)
         }
     }
 }
