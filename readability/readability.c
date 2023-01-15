@@ -11,7 +11,9 @@ int count_sentences(string text)
 int main(void)
 {
     string text = get_string("Text: ");
-
+    int L = count_letters(text);
+    int S = count_sentences(text);
+    index = 0.0588 * L - 0.296 * S - 15.8;
 }
 
 int count_letters(string text)
