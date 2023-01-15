@@ -42,7 +42,16 @@ int compute_score(string word)
     {
         if (isupper(word[i]))
         {
-            word[i] = word[i] - 32;
+            word[i] = tolower(word[i]);
+        }
+
+        for (int j = 0; j < 26; j++)
+        {
+            int k = word[i];
+            if (k == LOW[j])
+            {
+                count += POINTS[j];
+            }
         }
     }
     return count;
