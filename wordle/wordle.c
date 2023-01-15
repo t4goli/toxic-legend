@@ -180,7 +180,7 @@ void print_word(string guess, int wordsize, int status[])
     {
         if (status[i] == EXACT)
         {
-            printf(Green"%c", guess[i]);
+            printf(GREEN"%c", guess[i]);
         }
         else if (status[i] == CLOSE)
         {
