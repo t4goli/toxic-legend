@@ -2,7 +2,7 @@ sort1 uses: TODO
 
 How do you know?: TODO
 
-sort2 uses: TODO
+sort2 uses: Merge
 
 How do you know?: TODO
 
@@ -12,3 +12,4 @@ How do you know?: TODO
 
 0.090
 0.053
+0.058
