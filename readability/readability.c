@@ -13,6 +13,7 @@ int main(void)
 {
     string text = get_string("Text: ");
     int w = count_words(text);
+    printf("%i", w);
     int L = count_letters(text) / (w / 100.0);
     int S = count_sentences(text) / (w / 100.0);
     int index = round(0.0588 * L - 0.296 * S - 15.8);
