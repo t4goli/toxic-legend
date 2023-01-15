@@ -1,6 +1,6 @@
-sort1 uses: TODO
+sort1 uses: Selection
 
-How do you know?: TODO
+How do you know?: Takes less time in smaller lists but is slower comparatively to the other two
 
 sort2 uses: Merge
 
