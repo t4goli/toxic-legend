@@ -14,10 +14,10 @@ int main(void)
     string text = get_string("Text: ");
     int w = count_words(text);
     printf("%i\n", w);
-    int L = count_letters(text) / (w / 100.0);
-    printf("%i\n", L);
-    int S = count_sentences(text) / (w / 100.0);
-    printf("%i\n", S);
+    double L = count_letters(text) / (w / 100.0);
+    printf("%f\n", L);
+    double S = count_sentences(text) / (w / 100.0);
+    printf("%f\n", S);
     int index = round(0.0588 * L - 0.296 * S - 15.8);
 
     if (index > 0 && index < 17)
