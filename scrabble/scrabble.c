@@ -19,18 +19,46 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
+    if (score1 == score2)
+    {
+        printf("Tie!");
+    }
+    else if (score1 > score2)
+    {
+        printf("Player 1 wins!");
+    }
+    else
+    {
+        printf("Player 2 wins!");
+    }
 }
 
 int compute_score(string word)
 {
-    String CAP[] = {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z}
-    String LOW[] = {a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z}
+    char CAP[] = {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z}
+    char LOW[] = {a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z}
 
-    for (int i = 0; i < 26; i++)
+    int count = 0;
+    for (int i = 0; i < strlen(word); i++)
     {
         if (isupper(word[i]))
         {
-            for (int j = 0; j , 2)
+            for (int j = 0; j < 26; j++)
+            {
+                if (word[i] == CAP[i])
+                count += points;
+                break;
+            }
+        }
+
+        if (islower(word[i]))
+        {
+            for (int j = 0; j < 26; j++)
+            {
+                if (word[i] == CAP[i])
+                count += points;
+                break;
+            }
         }
     }
 }
