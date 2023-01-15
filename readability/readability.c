@@ -2,18 +2,32 @@
 #include <stdio.h>
 #include <math.h>
 
-int count_letters(string text)
-int count_words(string text)
-int count_sentences(string text)
+int count_letters(string text);
+int count_words(string text);
+int count_sentences(string text);
 
 
 
 int main(void)
 {
     string text = get_string("Text: ");
-    int L = count_letters(text);
-    int S = count_sentences(text);
-    index = 0.0588 * L - 0.296 * S - 15.8;
+    int w = count_words(text);
+    int L = count_letters(text) / (w / 100.0);
+    int S = count_sentences(text) / (w / 100.0);
+    int index = round(0.0588 * L - 0.296 * S - 15.8);
+
+    if (index > 0 && index < 17)
+    {
+        printf("Grade %i\n", index);
+    }
+    else if (index < 1)
+    {
+        printf("Before Grade 1\n");
+    }
+    else if (index > 16)
+    {
+        printf("Grade 16+\n");
+    }
 }
 
 int count_letters(string text)
