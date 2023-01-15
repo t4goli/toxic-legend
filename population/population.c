@@ -9,7 +9,7 @@ int main(void)
     {
         pop = get_int("Start size: ");
     }
-    while (pop > 9);
+    while (pop < 9);
 
     // TODO: Prompt for end size
     int end;
