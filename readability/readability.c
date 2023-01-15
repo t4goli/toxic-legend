@@ -77,7 +77,7 @@ int count_sentences(string text)
     {
         if (text[i] == 33 || text[i] == 63 || text[i] == 46)
         {
-            count += 2;
+            count += 1;
         }
     }
     return count;
