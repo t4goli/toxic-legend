@@ -16,6 +16,7 @@ int main(void)
     printf("%i\n", w);
     double L = (count_letters(text) * 100.0) / w;
     printf("%f\n", L);
+    printf("%i\n", count_sentences(text));
     double S = (count_sentences(text) * 100.0) / w;
     printf("%f\n", S);
     int index = round(0.0588 * L - 0.296 * S - 15.8);
