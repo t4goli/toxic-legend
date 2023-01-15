@@ -22,10 +22,10 @@
 
 int main (void)
 {
-    int wordsize = 5;
+    int wordsize = 3;
     int score = 0;
-    string guess = "foods";
-    string choice = "makes";
+    string guess = "pot";
+    string choice = "lok";
     int status[wordsize];
     for (int i = 0; i < wordsize; i++)
     {
@@ -53,8 +53,8 @@ int main (void)
             {
                 status[i] = WRONG;
             }
-            printf("%i", status[i]);
         }
+        printf("%i", status[i]);
     }
     // HINTS
     // iterate over each letter of the guess
