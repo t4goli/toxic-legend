@@ -9,3 +9,6 @@ How do you know?: TODO
 sort3 uses: TODO
 
 How do you know?: TODO
+
+0.090
+0.053
