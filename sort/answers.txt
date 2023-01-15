@@ -1,6 +1,6 @@
 sort1 uses: Bubble Sort
 
-How do you know?: Takes less time in smaller lists but is slower comparatively to the other two
+How do you know?: Takes the least amount of time on the largest, already sorted list
 
 sort2 uses: Merge Sort
 
@@ -8,8 +8,4 @@ How do you know?: Takes the least amount of time in the largest random list
 
 sort3 uses: Selection Sort
 
-How do you know?: Takes the least amount of time on the largest, already sorted list
-
-8.970
-1.613
-4.092
+How do you know?: Faster than sort1 on larger, unsorted lists but slower than sort2
