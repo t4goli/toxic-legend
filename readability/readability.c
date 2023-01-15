@@ -14,9 +14,9 @@ int main(void)
     string text = get_string("Text: ");
     int w = count_words(text);
     printf("%i\n", w);
-    double L = count_letters(text) / (w / 100.0);
+    double L = (count_letters(text) * 100.0) / w;
     printf("%f\n", L);
-    double S = count_sentences(text) / (w / 100.0);
+    double S = (count_sentences(text) * 100.0) / w;
     printf("%f\n", S);
     int index = round(0.0588 * L - 0.296 * S - 15.8);
 
