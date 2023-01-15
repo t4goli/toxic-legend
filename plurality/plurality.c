@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 // Max number of candidates
 #define MAX 9
@@ -66,13 +67,10 @@ int main(int argc, string argv[])
 // Update vote totals given a new vote
 bool vote(string name)
 {
-    printf("%s", candidates[0].name);
     for (int i = 0; i < candidate_count; i++)
     {
-        int l = atoi(candidates[i].name);
-        if (l == atoi(name))
+        if (atoi(name) == atoi(candidates[i].name))
         {
-            printf("%s, %i", candidates[i].name, candidates[i].votes);
             candidates[i].votes += 1;
             return true;
         }
@@ -83,14 +81,15 @@ bool vote(string name)
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
-    int high = 0;
-    for (int i = 0; i < MAX; i++)
+    int high = candidates[0].votes;
+    for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = 0; j < MAX; j++)
+        for (int j = 0; j < candidate_count; j++)
         {
             if (candidates[i].votes > candidates[j].votes && candidates[i].votes > high)
             {
                 high = candidates[i].votes;
+                printf("%i", high);
             }
         }
     }
@@ -99,7 +98,7 @@ void print_winner(void)
     {
         if (candidates[i].votes == high)
         {
-            printf("%s", candidates[i].name);;
+            printf("%s\n", candidates[i].name);;
         }
     }
     return;
