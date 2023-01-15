@@ -69,7 +69,6 @@ int main(int argc, string argv[])
     // pseudorandomly select a word for this game
     srand(time(NULL));
     string choice = options[rand() % LISTSIZE];
-    printf("%s", choice);
 
     // allow one more guess than the length of the word
     int guesses = wordsize + 1;
@@ -114,7 +113,7 @@ int main(int argc, string argv[])
 
     // Print the game's result
     // TODO #7
-
+    
     // that's all folks!
     return 0;
 }
@@ -154,6 +153,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
             {
                 status[i] = CLOSE;
                 score +=1;
+                break;
             }
             else
             {
@@ -161,7 +161,6 @@ int check_word(string guess, int wordsize, int status[], string choice)
             }
         }
     }
-    printf("%i", score);
     // HINTS
     // iterate over each letter of the guess
         // iterate over each letter of the choice
