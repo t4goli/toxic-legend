@@ -42,7 +42,8 @@ int compute_score(string word)
     {
         if (isupper(word[i]))
         {
-
+            word[i] = word[i] - 32;
+        }
     }
     return count;
 }
