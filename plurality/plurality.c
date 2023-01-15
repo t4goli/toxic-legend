@@ -68,7 +68,11 @@ bool vote(string name)
 {
     for (int i = 0; i < MAX; i++)
     {
-        if (strcmp(name, ))
+        if (strcmp(name, candidates[i].name))
+        {
+            candidates[i].votes += 1;
+            break;
+        }
     }
     return false;
 }
