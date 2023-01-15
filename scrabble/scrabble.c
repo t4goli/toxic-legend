@@ -35,8 +35,8 @@ int main(void)
 
 int compute_score(string word)
 {
-    char CAP[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'}
-    char LOW[] = {a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z}
+    char CAP[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+    char LOW[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
     int count = 0;
     for (int i = 0; i < strlen(word); i++)
@@ -45,8 +45,8 @@ int compute_score(string word)
         {
             for (int j = 0; j < 26; j++)
             {
-                if (word[i] == CAP[i])
-                count += points;
+                if (word[i] == CAP[j])
+                count += POINTS[j];
                 break;
             }
         }
@@ -55,8 +55,8 @@ int compute_score(string word)
         {
             for (int j = 0; j < 26; j++)
             {
-                if (word[i] == CAP[i])
-                count += points;
+                if (word[i] == CAP[j])
+                count += POINTS[j];
                 break;
             }
         }
