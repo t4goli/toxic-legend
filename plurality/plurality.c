@@ -85,10 +85,7 @@ void print_winner(void)
     {
         for (int j = 0; j < MAX; j++)
         {
-            if (candidates[i].votes > candidates[j].votes && candidates[i].votes > high)
-            {
-                high = candidates[i].votes;
-            }
+
         }
     }
     return;
