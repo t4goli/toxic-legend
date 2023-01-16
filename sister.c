@@ -15,9 +15,15 @@ int candidate_count;
 int main(void)
 {
     string name = "hi";
-    candidate[0].name = "hi";
-    if (strcmp(name, candidate[0].name))
+    string s = "hi";
+    candidates[0].name = "hi";
+    candidates[0].votes = 0;
+    if (strcmp(name, s))
     {
         printf("Same");
+    }
+    else
+    {
+        printf("Not");
     }
 }
