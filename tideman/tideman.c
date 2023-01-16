@@ -191,7 +191,6 @@ void lock_pairs(void)
                 if (pairs[j].loser == y)
                 {
                     y = pairs[j].winner;
-                    k = 0;
                 }
                 if (y == pairs[i].loser && locked[y][pairs[i].winner])
                 {
