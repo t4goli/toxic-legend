@@ -177,13 +177,13 @@ void lock_pairs(void)
     {
         for (int j = 0; j < pair_count; j++)
         {
-            for (int k = 0; k < pair_count; k++)
+            int t = pair_count
+            int y;
+            do
             {
-                for (int l = 0; l < pair_count; l++)
-                {
-                    
-                }
+                
             }
+            while (t > 0)
         }
     }
 }
