@@ -18,7 +18,7 @@ int main(void)
     string s = "hi";
     candidates[0].name = "hi";
     candidates[0].votes = 0;
-    if (strcmp(name, s))
+    if (strcmp(name, s) == 0)
     {
         printf("Same");
     }
