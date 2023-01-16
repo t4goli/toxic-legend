@@ -227,6 +227,7 @@ void print_winner(void)
             else
             {
                 s = 0;
+                break;
             }
         }
         if (s == 4)
