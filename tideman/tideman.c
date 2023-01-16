@@ -149,18 +149,7 @@ void sort_pairs(void)
     int templ;
     for (int i = 0; i < pair_count; i++)
     {
-        for (int j = 0; j < pair_count; j++)
-        {
-            if (preferences[i][j] > preferences[j][i])
-            {
-                tempw = pairs[i].winner;
-                templ = pairs[i].loser;
-                pairs[i].winner = pairs[j].winner;
-                pairs[i].loser = pairs[j].loser;
-                pairs[j].winner = tempw;
-                pairs[j].loser = templ;
-            }
-        }
+
     }
     return;
 }
