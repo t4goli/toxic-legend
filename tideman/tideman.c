@@ -185,12 +185,13 @@ void lock_pairs(void)
         int y = pairs[i].winner;
         do
         {
+            int k = 0;
             for (int j = 0; j < pair_count; j++)
             {
                 if (pairs[j].loser == pairs[i].winner)
                 {
                     y = pairs[j].winner;
-                    int k = 0;
+                    k = 0;
                 }
                 if (y == pairs[i].loser && locked[y][pairs[i].winner])
                 {
@@ -198,7 +199,7 @@ void lock_pairs(void)
                 }
                 else
                 {
-                    k == 4;
+                    k = 4;
                 }
                 if (s == 4 || k == 4)
                 {
