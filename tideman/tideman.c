@@ -190,17 +190,26 @@ void lock_pairs(void)
                 if (pairs[j].loser == pairs[i].winner)
                 {
                     y = pairs[j].winner;
+                    int k = 0;
                 }
                 if (y == pairs[i].loser && locked[y][pairs[i].winner])
                 {
                     s = 4;
                 }
-                if (s == 4)
+                else
+                {
+                    k == 4;
+                }
+                if (s == 4 || k == 4)
                 {
                     break;
                 }
             }
             t -= 1;
+            if (s == 4)
+            {
+                break;
+            }
         }
         while (t > 0);
 
