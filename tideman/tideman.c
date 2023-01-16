@@ -175,12 +175,12 @@ void lock_pairs(void)
 {
     for (int i = pair_count; i > 0; i--)
     {
-        for (int j = 0; j < pair_count; j++)
+        for (int j = pair_count; j < 0; j--)
         {
             int t = pair_count;
             int y = i;
             int n;
-            int s;
+            int s = 0;
             do
             {
                 for (int f = 0; f < pair_count; f++)
@@ -195,13 +195,13 @@ void lock_pairs(void)
                     }
                 }
                 t -= 1;
-                if (n = 4)
+                if (n == 4)
                 {
                     s = 4;
                     break;
                 }
             }
-            while (t > 0)
+            while (t > 0);
             if (s == 4)
             {
                 break;
