@@ -36,6 +36,8 @@ void print_winner(void);
 
 int main(int argc, string argv[])
 {
+    int pair_count = 3;
+    
     int s;
     for (int i = 0; i < pair_count; i++)
     {
