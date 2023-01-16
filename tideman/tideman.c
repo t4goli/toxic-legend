@@ -167,6 +167,10 @@ void sort_pairs(void)
         pairs[i].winner = tempw;
         pairs[i].loser = templ;
     }
+    for (int q = 0; q < pair_count; q++);
+    {
+        printf("%i %i\n", pairs[q].winner, pairs[q].loser);
+    }
     return;
 }
 
