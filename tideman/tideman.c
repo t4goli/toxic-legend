@@ -220,7 +220,7 @@ void print_winner(void)
         int s = 0;
         for (int j = 0; j < candidate_count; j++)
         {
-            if (i != j &&!locked[j][i])
+            if (i != j && !locked[j][i])
             {
                 s = 4;
             }
