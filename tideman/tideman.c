@@ -206,6 +206,10 @@ void lock_pairs(void)
             {
                 break;
             }
+            else
+            {
+                locked[i][j] = true;
+            }
         }
     }
 }
