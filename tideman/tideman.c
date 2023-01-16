@@ -147,7 +147,7 @@ void sort_pairs(void)
 {
     int tempw;
     int templ;
-    int l;
+    int l = 0;
     for (int i = 0; i < pair_count; i++)
     {
         for (int j = 0; j < pair_count; j++)
