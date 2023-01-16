@@ -197,11 +197,7 @@ void lock_pairs(void)
                 {
                     s = 4;
                 }
-                else
-                {
-                    k = 4;
-                }
-                if (s == 4 || k == 4)
+                if (s == 4)
                 {
                     break;
                 }
