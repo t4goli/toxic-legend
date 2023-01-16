@@ -223,7 +223,7 @@ void print_winner(void)
         {
             if (i != j)
             {
-                if (i != j && !locked[j][i])
+                if (!locked[j][i])
                 {
                     s = 4;
                 }
