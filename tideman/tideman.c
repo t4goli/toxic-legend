@@ -195,7 +195,7 @@ void lock_pairs(void)
                 {
                     s = 4;
                 }
-                if (s == 4)
+                if (s == 4 || locked[y][pairs[i].winner])
                 {
                     break;
                 }
