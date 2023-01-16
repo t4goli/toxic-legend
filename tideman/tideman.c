@@ -198,6 +198,7 @@ void lock_pairs(void)
             t -= 1;
         }
         while (t > 0);
+        
         if (s != 4)
         {
             locked[pairs[i].winner][pairs[i].loser] = true;
