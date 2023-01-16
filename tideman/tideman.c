@@ -220,7 +220,7 @@ void print_winner(void)
         int s = 0;
         for (int j = 0; j < candidate_count; j++)
         {
-            if (!locked[j][i])
+            if (i != j &&!locked[j][i])
             {
                 s = 4;
             }
@@ -231,7 +231,7 @@ void print_winner(void)
         }
         if (s == 4)
         {
-            printf("%s", candidates[i]);
+            printf("%s\n", candidates[i]);
         }
     }
     return;
