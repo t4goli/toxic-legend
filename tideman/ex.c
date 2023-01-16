@@ -34,10 +34,26 @@ void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
 
+typedef struct
+{
+    int winner;
+    int loser;
+}
+pair;
+
+// Array of candidates
+string candidates[MAX];
+pair pairs[MAX * (MAX - 1) / 2];
 int main(int argc, string argv[])
 {
     int pair_count = 3;
-    
+    pairs[0].winner = 2;
+    pairs[0].loser = 0;
+    pairs[1].winner = 0;
+    pairs[1].loser = 1;
+    pairs[2].winner = 1;
+    pairs[2].loser = 2;
+    bool locked[9][9];
     int s;
     for (int i = 0; i < pair_count; i++)
     {
