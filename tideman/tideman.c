@@ -195,6 +195,7 @@ void lock_pairs(void)
                     break;
                 }
             }
+            t -= 1;
         }
         while (t > 0);
         if (s != 4)
