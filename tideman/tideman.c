@@ -167,10 +167,6 @@ void sort_pairs(void)
         pairs[i].winner = tempw;
         pairs[i].loser = templ;
     }
-    printf("%i %i\n", pairs[0].winner, pairs[0].loser);
-    printf("%i %i\n", pairs[1].winner, pairs[1].loser);
-    printf("%i %i\n", pairs[2].winner, pairs[2].loser);
-
     return;
 }
 
@@ -221,7 +217,22 @@ void print_winner(void)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        
+        int s = 0;
+        for (int j = 0; j < candidate_count; j++)
+        {
+            if (!locked[j][i])
+            {
+                s = 4;
+            }
+            else
+            {
+                s = 0;
+            }
+        }
+        if (s == 4)
+        {
+            printf("%s", candidates[i]);
+        }
     }
     return;
 }
