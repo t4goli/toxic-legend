@@ -34,13 +34,6 @@ void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
 
-typedef struct
-{
-    int winner;
-    int loser;
-}
-pair;
-
 // Array of candidates
 string candidates[MAX];
 pair pairs[MAX * (MAX - 1) / 2];
