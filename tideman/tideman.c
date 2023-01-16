@@ -177,7 +177,9 @@ void lock_pairs(void)
     {
         for (int j = pair_count; j > 0; j++)
         {
-            for (int k = )
+            {
+                locked[i][j] = true
+            }
         }
     }
     return;
