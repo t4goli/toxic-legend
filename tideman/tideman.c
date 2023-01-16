@@ -176,6 +176,7 @@ void lock_pairs(void)
     int s;
     for (int i = 0; i < pair_count; i++)
     {
+        s = 0;
         int t = pair_count;
         int y = pairs[i].winner;
         do
@@ -198,7 +199,7 @@ void lock_pairs(void)
             t -= 1;
         }
         while (t > 0);
-        
+
         if (s != 4)
         {
             locked[pairs[i].winner][pairs[i].loser] = true;
