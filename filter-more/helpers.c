@@ -184,9 +184,32 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            int Gr = sqrt(pow(Gxr, 2) + pow(Gyr, 2));
-            int Gb = sqrt(pow(Gxb, 2) + pow(Gyb, 2));
-            int Gg = sqrt(pow(Gxg, 2) + pow(Gyg, 2));
+            int Gr = round(sqrt(pow(Gxr, 2) + pow(Gyr, 2)));
+            int Gb = round(sqrt(pow(Gxb, 2) + pow(Gyb, 2)));
+            int Gg = round(sqrt(pow(Gxg, 2) + pow(Gyg, 2)));
+            if (Gr > 255)
+            {
+                Gr = 255;
+            }
+            else if (Gb > 255)
+            {
+                Gb = 255;
+            }
+            else if (Gg > 255)
+            {
+                Gg = 255;
+            }
+            r[i][j].rgbtRed = Gr;
+            r[i][j].rgbtGreen = Gg;
+            r[i][j].rgbtBlue = Gb;
+        }
+    }
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            image[i][j] = r[i][j];
         }
     }
     return;
