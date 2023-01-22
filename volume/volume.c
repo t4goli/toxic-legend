@@ -36,8 +36,9 @@ int main(int argc, char *argv[])
     // TODO: Copy header from input file to output file
     uint8_t header[44];
     fread(void *header, size_t 2, size_t 44, FILE *input.wav)
-    fwrite(void *header)
+    fwrite(void *header, size_t 2, size_t 44, FILE *output.wav)
     // TODO: Read samples from input file and write updated data to output file
+    
 
     // Close files
     fclose(input);
