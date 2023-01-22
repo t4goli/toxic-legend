@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
         s = fread(&buffer, 2, 1, input);
         if (s != 0)
         {
-            fwrite(&buffer, 2, 1, output);
+            fwrite(&buffer, factor, 1, output);
         }
     }
     while (s != 0);
