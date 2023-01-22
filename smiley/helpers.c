@@ -4,12 +4,14 @@ void colorize(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < height; j++)
         {
-            RGBTRIPLE p = image[i][j];
-            p.rgbtRed = 3;
-            p.rgbtGreen = 252;
-            p.rgbtBlue = 132;
+            if (image[i][j].rgbtRed == 0 && image[i][j].rgbtGreen == 0 && image[i][j].rgbtBlue == 0)
+            {
+                image[i][j].rgbtRed = 3;
+                image[i][j].rgbtGreen = 232;
+                image[i][j].rgbtBlue = 132;
+            }
         }
     }
 }
