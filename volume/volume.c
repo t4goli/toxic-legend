@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     int s = 1;
     do
     {
-        s = fread(&buffer, sizeof(int16_t), 1, argv[1]);
+        s = fread(&buffer, sizeof(int16_t), 2, argv[1]);
         if (s != 0)
         {
             fwrite(&buffer, sizeof(int16_t), 1, argv[2]);
