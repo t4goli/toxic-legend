@@ -184,6 +184,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
+            int Gr = sqrt(pow(Gxr, 2) + pow(Gyr, 2));
+            int Gb = sqrt(pow(Gxb, 2) + pow(Gyb, 2));
+            int Gg = sqrt(pow(Gxg, 2) + pow(Gyg, 2));
         }
     }
     return;
