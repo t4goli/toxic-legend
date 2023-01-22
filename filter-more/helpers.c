@@ -184,12 +184,12 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         }
                     }
                 }
-                if (s != 9)
+            }
+            if (s != 9)
+            {
+                for (int m = s; m < 9; m++)
                 {
-                    for (int m = s; m < 9; m++)
-                    {
-                        s += 1;
-                    }
+                    s += 1;
                 }
             }
         }
