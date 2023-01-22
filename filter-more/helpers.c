@@ -98,14 +98,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     if ((i - k <= 1 && i - k >= -1) && (j - l <= 1 && j - l >= -1))
                     {
                         s += 1;
-                        if (i == k && (l - j == 1))
+                        if (i == k && (j - l == 1))
                         {
-                            Gxr = -1 * image[k][l].rgbtRed;
-                            Gyr = -1 * image[k][l].rgbtRed;
-                            Gxb = -1 * image[k][l].rgbtBlue;
-                            Gyb = -1 * image[k][l].rgbtBlue;
-                            Gxg = -1 * image[k][l].rgbtGreen;
-                            Gyg = -1 * image[k][l].rgbtGreen;
+                            Gxr = -2 * image[k][l].rgbtRed;
+                            Gyr = 0 * image[k][l].rgbtRed;
+                            Gxb = -2 * image[k][l].rgbtBlue;
+                            Gyb = -0 * image[k][l].rgbtBlue;
+                            Gxg = -2 * image[k][l].rgbtGreen;
+                            Gyg = -0 * image[k][l].rgbtGreen;
                         }
                         if (i == k && l == j)
                         {
@@ -116,14 +116,27 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                             Gxg = 0 * image[k][l].rgbtGreen;
                             Gyg = 0 * image[k][l].rgbtGreen;
                         }
-                        if (i == k && (j - l == 1))
+                        if (i == k && (l - j == 1))
                         {
-                            Gxr = -1 * image[k][l].rgbtRed;
-                            Gyr = -1 * image[k][l].rgbtRed;
-                            Gxb = -1 * image[k][l].rgbtBlue;
-                            Gyb = -1 * image[k][l].rgbtBlue;
-                            Gxg = -1 * image[k][l].rgbtGreen;
-                            Gyg = -1 * image[k][l].rgbtGreen;
+                            Gxr = 2 * image[k][l].rgbtRed;
+                            Gyr = 0 * image[k][l].rgbtRed;
+                            Gxb = 2 * image[k][l].rgbtBlue;
+                            Gyb = 0 * image[k][l].rgbtBlue;
+                            Gxg = 2 * image[k][l].rgbtGreen;
+                            Gyg = 0 * image[k][l].rgbtGreen;
+                        }
+                        if (j == l && (i - k == 1))
+                        {
+                            Gxr = 0 * image[k][l].rgbtRed;
+                            Gyr = -2 * image[k][l].rgbtRed;
+                            Gxb = 0 * image[k][l].rgbtBlue;
+                            Gyb = -2 * image[k][l].rgbtBlue;
+                            Gxg = 0 * image[k][l].rgbtGreen;
+                            Gyg = -2 * image[k][l].rgbtGreen;
+                        }
+                        if (j = l && (k - i == 1))
+                        {
+
                         }
                     }
                 }
