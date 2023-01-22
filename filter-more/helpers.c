@@ -5,9 +5,9 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int i = 0; i < height; i++)
     {
-        for (it j = 0; j < width; j++)
+        for (int j = 0; j < width; j++)
         {
-            int k = (image[i][j].rgbtRed + image[i][j].rgbtBlue + image[i][j].rgbtGreen) / 3.0
+            int k = (image[i][j].rgbtRed + image[i][j].rgbtBlue + image[i][j].rgbtGreen) / 3.0;
             image[i][j].rgbtRed = k;
             image[i][j].rgbtGreen = k;
             image[i][j].rgbtBlue = k;
@@ -19,13 +19,20 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
-    for (i = 0; i < height; i++)
+    for (int i = 0; i < height; i++)
     {
-        for (j = 0; j < (int)(width / 2); j++)
+        for (int j = 0; j < (int)(width / 2); j++)
         {
-            int temp = image[i][j];
-            image[i][j] = image[i][width - j]
-            image[i][width - j] = image[]
+            int t1 = i;
+            int t2 = j;
+            int b = image[i][j].rgbtBlue;
+            int r = image[i][j].rgbtRed;
+            int g = image[i][j].rgbtGreen;
+            image[i][j] = image[i][width - j];
+            image[i][width - j] = image[t1][t2];
+            image[t1][t2].rgbtBlue = b;
+            image[t1][t2].rgbtRed = r;
+            image[t1][t2].rgbtGreen = g;
 
         }
     }
