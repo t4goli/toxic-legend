@@ -43,11 +43,17 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
+            int b;
+            int r;
+            int g;
             for (int k = 0; k < height; k++)
             {
                 for (int l = 0; l < width; l++)
                 {
-                    if ((k - 1 == i || k + 1 == 1) || (l - 1 = j || l + 1 == j) || 
+                    if ((k - 1 == i || k + 1 == 1) || (l - 1 = j || l + 1 == j) || (k + 1 == i && l + 1 == j) || (k + 1 == i && l - 1 == j) || (k - 1 == i && l - 1 = j) || (k - 1 == i && l + 1 == j) )
+                    {
+
+                    }
                 }
             }
         }
