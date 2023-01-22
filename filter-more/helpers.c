@@ -103,11 +103,11 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                             Gxr = -2 * image[k][l].rgbtRed;
                             Gyr = 0 * image[k][l].rgbtRed;
                             Gxb = -2 * image[k][l].rgbtBlue;
-                            Gyb = -0 * image[k][l].rgbtBlue;
+                            Gyb = 0 * image[k][l].rgbtBlue;
                             Gxg = -2 * image[k][l].rgbtGreen;
-                            Gyg = -0 * image[k][l].rgbtGreen;
+                            Gyg = 0 * image[k][l].rgbtGreen;
                         }
-                        if (i == k && l == j)
+                        else if (i == k && l == j)
                         {
                             Gxr = 0 * image[k][l].rgbtRed;
                             Gyr = 0 * image[k][l].rgbtRed;
@@ -116,7 +116,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                             Gxg = 0 * image[k][l].rgbtGreen;
                             Gyg = 0 * image[k][l].rgbtGreen;
                         }
-                        if (i == k && (l - j == 1))
+                        else if (i == k && (l - j == 1))
                         {
                             Gxr = 2 * image[k][l].rgbtRed;
                             Gyr = 0 * image[k][l].rgbtRed;
@@ -125,7 +125,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                             Gxg = 2 * image[k][l].rgbtGreen;
                             Gyg = 0 * image[k][l].rgbtGreen;
                         }
-                        if (j == l && (i - k == 1))
+                        else if (j == l && (i - k == 1))
                         {
                             Gxr = 0 * image[k][l].rgbtRed;
                             Gyr = -2 * image[k][l].rgbtRed;
@@ -134,9 +134,53 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                             Gxg = 0 * image[k][l].rgbtGreen;
                             Gyg = -2 * image[k][l].rgbtGreen;
                         }
-                        if (j = l && (k - i == 1))
+                        else if (j == l && (k - i == 1))
                         {
-
+                            Gxr = 0 * image[k][l].rgbtRed;
+                            Gyr = 2 * image[k][l].rgbtRed;
+                            Gxb = 0 * image[k][l].rgbtBlue;
+                            Gyb = 2 * image[k][l].rgbtBlue;
+                            Gxg = 0 * image[k][l].rgbtGreen;
+                            Gyg = 2 * image[k][l].rgbtGreen;
+                        }
+                        else
+                        {
+                            if (l < j && k < i)
+                            {
+                                Gxr = -1 * image[k][l].rgbtRed;
+                                Gyr = -1 * image[k][l].rgbtRed;
+                                Gxb = -1 * image[k][l].rgbtBlue;
+                                Gyb = -1 * image[k][l].rgbtBlue;
+                                Gxg = -1 * image[k][l].rgbtGreen;
+                                Gyg = -1 * image[k][l].rgbtGreen;
+                            }
+                            else if (l > j && k < i)
+                            {
+                                Gxr = 1 * image[k][l].rgbtRed;
+                                Gyr = -1 * image[k][l].rgbtRed;
+                                Gxb = 1 * image[k][l].rgbtBlue;
+                                Gyb = -1 * image[k][l].rgbtBlue;
+                                Gxg = 1 * image[k][l].rgbtGreen;
+                                Gyg = -1 * image[k][l].rgbtGreen;
+                            }
+                            else if (k > i && l < j)
+                            {
+                                Gxr = -1 * image[k][l].rgbtRed;
+                                Gyr = 1 * image[k][l].rgbtRed;
+                                Gxb = -1 * image[k][l].rgbtBlue;
+                                Gyb = 1 * image[k][l].rgbtBlue;
+                                Gxg = -1 * image[k][l].rgbtGreen;
+                                Gyg = 1 * image[k][l].rgbtGreen;
+                            }
+                            else if (k > i && l > j)
+                            {
+                                Gxr = 1 * image[k][l].rgbtRed;
+                                Gyr = 1 * image[k][l].rgbtRed;
+                                Gxb = 1 * image[k][l].rgbtBlue;
+                                Gyb = 1 * image[k][l].rgbtBlue;
+                                Gxg = 1 * image[k][l].rgbtGreen;
+                                Gyg = 1 * image[k][l].rgbtGreen;
+                            }
                         }
                     }
                 }
