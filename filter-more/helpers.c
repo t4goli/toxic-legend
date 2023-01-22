@@ -85,8 +85,12 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             int s = 0;
-            int Gx;
-            int Gy;
+            int Gxr;
+            int Gyr;
+            int Gxg;
+            int Gyg;
+            int Gxb;
+            int Gyb;
             for (int k = 0; k < height; k++)
             {
                 for (int l = 0; l < width; l++)
@@ -94,7 +98,33 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     if ((i - k <= 1 && i - k >= -1) && (j - l <= 1 && j - l >= -1))
                     {
                         s += 1;
-                        if ()
+                        if (i == k && (l - j == 1))
+                        {
+                            Gxr = -1 * image[k][l].rgbtRed;
+                            Gyr = -1 * image[k][l].rgbtRed;
+                            Gxb = -1 * image[k][l].rgbtBlue;
+                            Gyb = -1 * image[k][l].rgbtBlue;
+                            Gxg = -1 * image[k][l].rgbtGreen;
+                            Gyg = -1 * image[k][l].rgbtGreen;
+                        }
+                        if (i == k && l == j)
+                        {
+                            Gxr = 0 * image[k][l].rgbtRed;
+                            Gyr = 0 * image[k][l].rgbtRed;
+                            Gxb = 0 * image[k][l].rgbtBlue;
+                            Gyb = 0 * image[k][l].rgbtBlue;
+                            Gxg = 0 * image[k][l].rgbtGreen;
+                            Gyg = 0 * image[k][l].rgbtGreen;
+                        }
+                        if (i == k && (j - l == 1))
+                        {
+                            Gxr = -1 * image[k][l].rgbtRed;
+                            Gyr = -1 * image[k][l].rgbtRed;
+                            Gxb = -1 * image[k][l].rgbtBlue;
+                            Gyb = -1 * image[k][l].rgbtBlue;
+                            Gxg = -1 * image[k][l].rgbtGreen;
+                            Gyg = -1 * image[k][l].rgbtGreen;
+                        }
                     }
                 }
             }
