@@ -7,9 +7,9 @@ int main(void)
 {
     typedef struct
     {
-    BYTE  rgbtBlue;
-    BYTE  rgbtGreen;
-    BYTE  rgbtRed;
+    int  rgbtBlue;
+    int  rgbtGreen;
+    int  rgbtRed;
     } __attribute__((__packed__))
     RGBTRIPLE;
     int height = 4;
@@ -199,5 +199,5 @@ int main(void)
             image[i][j] = r[i][j];
         }
     }
-    return;
+    
 }
