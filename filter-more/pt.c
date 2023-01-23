@@ -70,7 +70,7 @@ int main(void)
 
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 2; j < width; j++)
         {
             int Gxr = 0;
             int Gyr = 0;
@@ -199,5 +199,5 @@ int main(void)
             image[i][j] = r[i][j];
         }
     }
-    
+
 }
