@@ -191,11 +191,11 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 Gr = 255;
             }
-            else if (Gb > 255)
+            if (Gb > 255)
             {
                 Gb = 255;
             }
-            else if (Gg > 255)
+            if (Gg > 255)
             {
                 Gg = 255;
             }
