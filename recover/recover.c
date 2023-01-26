@@ -24,9 +24,9 @@ int main(int argc, char *argv[])
     char *fn = malloc(4);
     while(fread(buffer, 1, 512, inptr) == 512)
     {
+        FILE *img = fopen(fn, "w");
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            FILE *img = fopen(fn, "w");
             if (z == 0)
             {
                 sprintf(fn, "%03i.jpg", z);
