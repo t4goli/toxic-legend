@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     }
 
     int z = 0;
+    int l = 0;
     typedef uint8_t  BYTE;
     BYTE buffer[512];
     char *fn = malloc(4);
@@ -31,6 +32,7 @@ int main(int argc, char *argv[])
             {
                 sprintf(fn, "%03i.jpg", z);
                 fwrite(buffer, 1, 512, img);
+                l = 1;
             }
             else
             {
@@ -43,7 +45,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-            if (z != 0)
+            if (l != 0)
             {
                 sprintf(fn, "%03i.jpg", z);
                 fwrite(buffer, 1, 512, img);
