@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
         {
             if (l != 0)
             {
+                FILE *img = fopen(fn, "w");
                 sprintf(fn, "%03i.jpg", z);
                 fwrite(&buffer, sizeof(uint8_t), 512, img);
             }
