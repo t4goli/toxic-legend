@@ -55,8 +55,8 @@ int main(int argc, char *argv[])
                 fclose(img);
             }
         }
+        free(fn);
     }
-    free(fn);
     fclose(inptr);
 
 }
