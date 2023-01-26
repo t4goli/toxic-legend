@@ -26,14 +26,15 @@ int main(int argc, char *argv[])
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            FILE *img = fopen(fn, "w");
             if (z == 0)
             {
+                FILE *img = fopen(fn, "w");
                 sprintf(fn, "%03i.jpg", z);
                 fwrite(buffer, 1, 512, img);
             }
             else
             {
+                free(fn)
                 fclose(img);
                 z += 1;
                 sprintf(fn, "%03i.jpg", z);
