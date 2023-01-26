@@ -34,10 +34,8 @@ int main(int argc, char *argv[])
             }
             else
             {
-                free(fn);
                 fclose(img);
                 z += 1;
-                char *fn = malloc(4);
                 FILE *img = fopen(fn, "w");
                 sprintf(fn, "%03i.jpg", z);
                 fwrite(buffer, 1, 512, img);
