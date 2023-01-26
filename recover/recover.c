@@ -18,6 +18,9 @@ int main(int argc, char *argv[])
     }
 
     typedef uint8_t BYTE;
-
-    while()
+    uint8_t buffer[];
+    while(fread(buffer, 1, 512, f) == 512)
+    {
+        
+    }
 }
