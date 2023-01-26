@@ -21,7 +21,6 @@ int main(int argc, char *argv[])
     int z = 0;
     FILE *img = NULL;
     int l = 0;
-    typedef uint8_t  BYTE;
     unsigned char buffer[512];
     char *fn = malloc(8 * sizeof(char));
     while(fread(buffer, sizeof(char), 512, inptr) == 512)
