@@ -20,7 +20,6 @@ int main(int argc, char *argv[])
 
     int z = 0;
     FILE *img = NULL;
-    int l = 0;
     typedef uint8_t BYTE;
     BYTE buffer[512];
     char *fn = malloc(4 * sizeof(BYTE));
@@ -28,14 +27,21 @@ int main(int argc, char *argv[])
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            if (z != 0)
+            if (z == 0)
+            {
+                sprintf(fn, "%03i.jpg", z);
+                img = fopen(fn, "w");
+                fwrite(buffer, sizeof(BYTE), 512, img);
+                z += 1;
+            }
+            else
             {
                 fclose(img);
+                sprintf(fn, "%03i.jpg", z);
+                img = fopen(fn, "w");
+                fwrite(buffer, sizeof(BYTE), 512, img);
+                z += 1;
             }
-            sprintf(fn, "%03i.jpg", z);
-            img = fopen(fn, "w");
-            z += 1;
-            fwrite(buffer, sizeof(BYTE), 512, img);
         }
         else
         {
