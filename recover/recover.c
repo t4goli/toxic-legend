@@ -34,10 +34,10 @@ int main(int argc, char *argv[])
             }
             else
             {
-                fclose(img);
+                fclose(fn);
                 z += 1;
-                FILE *img = fopen(fn, "w");
                 sprintf(fn, "%03i.jpg", z);
+                FILE *img = fopen(fn, "w");
                 fwrite(buffer, 1, 512, img);
             }
         }
