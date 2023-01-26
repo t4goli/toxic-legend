@@ -18,20 +18,19 @@ int main(int argc, char *argv[])
         return 4;
     }
 
-    int z = 0;
+    int z = 1;
     typedef uint8_t  BYTE;
     BYTE buffer[512];
     while(fread(buffer, 1, 512, inptr) == 512)
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            if (z == 0)
+            if (z == 1)
             {
-                z = 1;
                 char *fn = malloc(4);
                 sprintf(fn, "%03i.jpg", z);
                 FILE *img = fopen(fn, "w");
-                fwrite()
+                fwrite(buffer, 1, 512, fn);
             }
             else
             {
@@ -41,6 +40,7 @@ int main(int argc, char *argv[])
                 char *fn = malloc(4);
                 sprintf(fn, "%03i.jpg", z);
                 FILE *img = fopen(fn, "w");
+                fwrite(buffer, 1, 512, fn);
             }
         }
         else
@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
             if (z > 0)
             {
                 sprintf(fn, "%03i.jpg", z);
+                fwrite(buffer, 1, 512, fn);
             }
         }
     }
