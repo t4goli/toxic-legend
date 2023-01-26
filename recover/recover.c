@@ -24,7 +24,10 @@ int main(int argc, char *argv[])
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && bugger[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            if (i == 1)
+            if (i == 0)
+            {
+                
+            }
         }
     }
 }
