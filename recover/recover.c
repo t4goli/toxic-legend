@@ -17,17 +17,18 @@ int main(int argc, char *argv[])
         return 4;
     }
 
-    i = 0;
+    int z = 1;
     typedef uint8_t BYTE;
     uint8_t buffer[];
     while(fread(buffer, 1, 512, f) == 512)
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && bugger[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            if (i == 0)
+            if (z == 1)
             {
                 char *fn = malloc(4);
-                sprintf()
+                sprintf(fn, "%03i.jpg", z);
+                FILE *img = fopen(fn, "w");
             }
         }
     }
