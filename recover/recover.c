@@ -26,7 +26,8 @@ int main(int argc, char *argv[])
         {
             if (i == 0)
             {
-                
+                char *fn = malloc(4);
+                sprintf()
             }
         }
     }
