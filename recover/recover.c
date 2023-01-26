@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
             }
             else
             {
-                fclose()
+                fclose(img);
                 z += 1;
                 sprintf(fn, "%03i.jpg", z);
                 FILE *img = fopen(fn, "w");
