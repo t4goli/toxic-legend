@@ -30,6 +30,19 @@ int main(int argc, char *argv[])
                 sprintf(fn, "%03i.jpg", z);
                 FILE *img = fopen(fn, "w");
             }
+            else
+            {
+                z += 1;
+                fclose(fn);
+                free(fn);
+                char *fn = malloc(4);
+                sprintf(fn, "%03i.jpg", z);
+                FILE *img = fopen(fn, "w");
+            }
+        }
+        else
+        {
+            
         }
     }
 }
