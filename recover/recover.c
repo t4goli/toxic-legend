@@ -49,6 +49,8 @@ int main(int argc, char *argv[])
             }
         }
     }
+    fclose(fn);
     free(fn);
-    
+    fclose(f);
+
 }
