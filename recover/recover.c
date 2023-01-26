@@ -30,29 +30,32 @@ int main(int argc, char *argv[])
                 char *fn = malloc(4);
                 sprintf(fn, "%03i.jpg", z);
                 FILE *img = fopen(fn, "w");
-                fwrite(buffer, 1, 512, fn);
+                fwrite(buffer, 1, 512, img);
+                fclose(img);
             }
             else
             {
                 z += 1;
-                fclose(fn);
-                free(fn);
                 char *fn = malloc(4);
                 sprintf(fn, "%03i.jpg", z);
                 FILE *img = fopen(fn, "w");
-                fwrite(buffer, 1, 512, fn);
+                fwrite(buffer, 1, 512, img);
+                fclose(img);
+
             }
         }
         else
         {
             if (z > 0)
             {
+                char *fn = malloc(4);
                 sprintf(fn, "%03i.jpg", z);
-                fwrite(buffer, 1, 512, fn);
+                FILE *img = fopen(fn, "w");
+                fwrite(buffer, 1, 512, img);
+                fclose(img);
             }
         }
     }
-    fclose(fn);
     free(fn);
     fclose(inptr);
 
