@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
 
     int z = 0;
     typedef uint8_t  BYTE;
-    BYTE buffer[];
-    while(fread(buffer, 1, 512, f) == 512)
+    BYTE buffer[4];
+    while(fread(buffer, 1, 512, File* f) == 512)
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && bugger[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
