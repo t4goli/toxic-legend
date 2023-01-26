@@ -21,13 +21,13 @@ int main(int argc, char *argv[])
     int z = 0;
     typedef uint8_t  BYTE;
     BYTE buffer[4];
-    while(fread(buffer, 1, 512, File* f) == 512)
+    while(fread(buffer, 1, 512, inptr) == 512)
     {
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && bugger[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
             if (z == 0)
             {
-                z == 1;
+                z = 1;
                 char *fn = malloc(4);
                 sprintf(fn, "%03i.jpg", z);
                 FILE *img = fopen(fn, "w");
@@ -52,6 +52,6 @@ int main(int argc, char *argv[])
     }
     fclose(fn);
     free(fn);
-    fclose(f);
+    fclose(inptr);
 
 }
