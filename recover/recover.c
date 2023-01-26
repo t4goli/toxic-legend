@@ -35,7 +35,6 @@ int main(int argc, char *argv[])
             img = fopen(fn, "w");
             fwrite(buffer, sizeof(BYTE), 512, img);
             z += 1;
-            }
         }
         else
         {
@@ -48,5 +47,4 @@ int main(int argc, char *argv[])
     fclose(img);
     free(fn);
     fclose(inptr);
-
 }
