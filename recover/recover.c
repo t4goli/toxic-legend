@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
             if (z == 0)
             {
                 sprintf(fn, "%03i.jpg", z);
-                fwrite(&buffer, sizeof(uint8_t), 512, img);
+                fwrite(&buffer, sizeof(uint8_t), 1, img);
                 l = 1;
                 fclose(img);
             }
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
                 z += 1;
                 sprintf(fn, "%03i.jpg", z);
                 img = fopen(fn, "w");
-                fwrite(&buffer, sizeof(uint8_t), 512, img);
+                fwrite(&buffer, sizeof(uint8_t), 1, img);
             }
         }
         else
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
             {
                 sprintf(fn, "%03i.jpg", z);
                 FILE *img = fopen(fn, "w");
-                fwrite(&buffer, sizeof(uint8_t), 512, img);
+                fwrite(&buffer, sizeof(uint8_t), 1, img);
                 fclose(img);
             }
         }
