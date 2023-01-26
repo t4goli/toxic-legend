@@ -10,10 +10,10 @@ int main(int argc, char *argv[])
     }
     char *infile = argv[1];
 
-    FILE *inptr = fopen(infile, "r");
-    if (inptr == NULL)
+    FILE *f = fopen(f, "r");
+    if (f == NULL)
     {
-        printf("Could not open %s.\n", infile);
+        printf("Could not open %s.\n", f);
         return 4;
     }
 }
