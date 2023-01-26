@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     }
 
     int z = 0;
-    FILE *img = NULL;
+    FILE *img;
     typedef uint8_t BYTE;
     BYTE buffer[512];
     char *fn = malloc(4 * sizeof(BYTE));
