@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
     if (argc != 2)
     {
         printf("Usage: ./recover IMAGE\n");
-        return 2;
+        return 1;
     }
     char *f = argv[1];
 
@@ -15,17 +15,17 @@ int main(int argc, char *argv[])
     if (f == NULL)
     {
         printf("Could not open %s.\n", f);
-        return 4;
+        return 1;
     }
 
-    int z = 1;
+    int z = 0;
     typedef uint8_t  BYTE;
     BYTE buffer[512];
     while(fread(buffer, 1, 512, inptr) == 512)
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            if (z == 1)
+            if (z == 0)
             {
                 char *fn = malloc(4);
                 sprintf(fn, "%03i.jpg", z);
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-            if (z > 0)
+            if (z != 0)
             {
                 char *fn = malloc(4);
                 sprintf(fn, "%03i.jpg", z);
