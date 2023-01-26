@@ -7,4 +7,7 @@ int main(int argc, char *argv[])
     {
         printf("Usage: ./recover IMAGE\n");
     }
+    char *infile = argv[]
+
+    FILE *inptr = fopen()
 }
