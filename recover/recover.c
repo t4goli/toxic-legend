@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
             }
             else
             {
-                free(fn)
+                free(fn);
                 fclose(img);
                 z += 1;
                 sprintf(fn, "%03i.jpg", z);
@@ -47,7 +47,6 @@ int main(int argc, char *argv[])
             if (z != 0)
             {
                 sprintf(fn, "%03i.jpg", z);
-                FILE *img = fopen(fn, "w");
                 fwrite(buffer, 1, 512, img);
             }
         }
