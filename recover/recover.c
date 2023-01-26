@@ -16,4 +16,8 @@ int main(int argc, char *argv[])
         printf("Could not open %s.\n", f);
         return 4;
     }
+
+    typedef uint8_t BYTE;
+
+    while()
 }
