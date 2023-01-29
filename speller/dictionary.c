@@ -62,7 +62,7 @@ bool load(const char *dictionary)
         }
         else
         {
-            for (node *pt = table[index]; ptr != NULL; ptr = ptr->next)
+            for (node *ptr = table[index]; ptr != NULL; ptr = ptr->next)
             {
                 if (ptr->next == NULL)
                 {
