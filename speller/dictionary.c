@@ -40,10 +40,10 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    int l = strlen(*word);
+    int l = strlen(word);
     if (l < N)
     {
-        return (strlen(*word));
+        return (strlen(word));
     }
     else
     {
@@ -108,6 +108,6 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO
+    
     return false;
 }
