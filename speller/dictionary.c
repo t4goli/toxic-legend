@@ -33,7 +33,15 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    return (strlen(*word));
+    int l = strlen(*word);
+    if (l < N)
+    {
+        return (strlen(*word));
+    }
+    else
+    {
+        return l % N;
+    }
 }
 
 // Loads dictionary into memory, returning true if successful, else false
@@ -86,7 +94,7 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    // TODO
+
     return 0;
 }
 
