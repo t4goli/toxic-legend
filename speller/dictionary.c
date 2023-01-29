@@ -50,7 +50,8 @@ bool load(const char *dictionary)
             return false;
         }
         strcpy(n->word, *w);
-        hash(n->word); 
+        int index = hash(n->word);
+
     }
 }
 
