@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include "dictionary.h"
 
@@ -51,7 +52,7 @@ bool load(const char *dictionary)
         {
             return false;
         }
-        strcpy(n->word, *w);
+        strcpy(n->word, w);
         int index = hash(n->word);
         if (table[index] == NULL)
         {
