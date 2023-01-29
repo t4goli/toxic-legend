@@ -26,7 +26,14 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
+    int nwl = strlen(word);
+    for (node *ptr = table[nwl]; ptr != NULL; ptr = ptr->next)
+    {
+        if (strcasecmp(word, ptr->word) == 0)
+        {
+            return true;
+        }
+    }
     return false;
 }
 
