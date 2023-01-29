@@ -117,6 +117,6 @@ bool unload(void)
             free(temp);
         }
     }
-    free(temp);
+    return true;
     return false;
 }
