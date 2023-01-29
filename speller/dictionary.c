@@ -60,6 +60,22 @@ bool load(const char *dictionary)
             n->next = table[index];
             table[index] = n;
         }
+        else
+        {
+            for (node *pt = table[index]; ptr != NULL; ptr = ptr->next)
+            {
+                if (ptr->next == NULL)
+                {
+                    ptr->next = n;
+                    break;
+                }
+                if (strcasecmp(n->word, ptr->next->word) < 0)
+                {
+                    n->next = ptr->next;
+                    ptr->next = n;
+                }
+            }
+        }
 
     }
 }
