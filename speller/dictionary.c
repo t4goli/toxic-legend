@@ -41,7 +41,7 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    
+    while (fread )
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
