@@ -49,7 +49,8 @@ bool load(const char *dictionary)
         {
             return false;
         }
-        strcpy(*w, n->word);
+        strcpy(n->word, *w);
+        hash(n->word);
     }
 }
 
