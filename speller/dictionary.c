@@ -5,6 +5,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
+#include <strings.h>
 #include <stdlib.h>
 #include "dictionary.h"
 
@@ -44,7 +45,7 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    char *w;
+    char *w = NULL;
     while (fscanf(intpr, "%s", w) != EOF)
     {
         node *n = malloc(sizeof(node));
