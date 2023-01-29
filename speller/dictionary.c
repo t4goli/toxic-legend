@@ -36,7 +36,7 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    FILE *intpr = fopen(infile, "r")
+    FILE *intpr = fopen(dictionary, "r")
     if (intpr = NULL)
     {
         return false;
