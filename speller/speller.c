@@ -17,8 +17,6 @@
 // Prototype
 double calculate(const struct rusage *b, const struct rusage *a);
 
-// Wordcount of Dictionary
-int wordc;
 
 int main(int argc, char *argv[])
 {
@@ -42,6 +40,9 @@ int main(int argc, char *argv[])
     getrusage(RUSAGE_SELF, &before);
     bool loaded = load(dictionary);
     getrusage(RUSAGE_SELF, &after);
+
+    // Wordcount of Dictionary
+    int wordc;
 
     // Exit if dictionary not loaded
     if (!loaded)
