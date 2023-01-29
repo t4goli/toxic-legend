@@ -113,8 +113,10 @@ bool unload(void)
         node *temp = table[i];
         for (node *ptr = table[i]; ptr != NULL; ptr = ptr->next)
         {
-            
+            temp = ptr;
+            free(temp);
         }
     }
+    free(temp);
     return false;
 }
