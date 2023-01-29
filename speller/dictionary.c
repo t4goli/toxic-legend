@@ -110,7 +110,11 @@ bool unload(void)
 {
     for (int i = 0; i <= N; i++)
     {
-        table[i]
+        node *temp = table[i];
+        for (node *ptr = table[i]; ptr != NULL; ptr = ptr->next)
+        {
+            
+        }
     }
     return false;
 }
