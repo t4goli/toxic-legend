@@ -17,6 +17,9 @@
 // Prototype
 double calculate(const struct rusage *b, const struct rusage *a);
 
+// Wordcount of Dictionary
+int wordc;
+
 int main(int argc, char *argv[])
 {
     // Check for correct number of args
