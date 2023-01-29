@@ -2,7 +2,9 @@
 
 #include <ctype.h>
 #include <stdbool.h>
-
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "dictionary.h"
 
 // Represents a node in a hash table
@@ -36,13 +38,13 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    FILE *intpr = fopen(dictionary, "r")
-    if (intpr = NULL)
+    FILE *intpr = fopen(dictionary, "r");
+    if (intpr == NULL)
     {
         return false;
     }
     char *w;
-    while (fscanf(intpr, "%s", word) != EOF)
+    while (fscanf(intpr, "%s", w) != EOF)
     {
         node *n = malloc(sizeof(node));
         if (n == NULL)
@@ -76,8 +78,8 @@ bool load(const char *dictionary)
                 }
             }
         }
-
     }
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
