@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+
     // Calculate time to load dictionary
     time_load = calculate(&before, &after);
 

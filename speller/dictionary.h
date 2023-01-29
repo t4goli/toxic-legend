@@ -9,8 +9,6 @@
 // (e.g., pneumonoultramicroscopicsilicovolcanoconiosis)
 #define LENGTH 45
 
-// Dictionary Word Count
-int wordc;
 
 // Prototypes
 bool check(const char *word);
