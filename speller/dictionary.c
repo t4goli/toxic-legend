@@ -77,13 +77,11 @@ bool load(const char *dictionary)
         {
             n->next = NULL;
             table[z] = n;
-            wordc++;
         }
         else if (strcasecmp(n->word, table[z]->word) < 0)
         {
             n->next = table[z];
             table[z] = n;
-            wordc++;
         }
         else
         {
@@ -92,13 +90,11 @@ bool load(const char *dictionary)
                 if (ptr->next == NULL)
                 {
                     ptr->next = n;
-                    wordc++;
                     break;
                 }
                 if (strcasecmp(n->word, ptr->next->word) < 0)
                 {
                     n->next = ptr->next;
-                    wordc++;
                     ptr->next = n;
                 }
             }
