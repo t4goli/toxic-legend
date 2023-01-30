@@ -60,7 +60,6 @@ bool load(const char *dictionary)
         return false;
     }
     char *w = NULL;
-    *pwc += 1;
     while (fscanf(intpr, "%s", w) != EOF)
     {
         node *n = malloc(sizeof(node));
