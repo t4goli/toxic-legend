@@ -61,7 +61,7 @@ bool load(const char *dictionary)
         return false;
     }
 
-    char *w = malloc(N + 1);
+    char w[N + 1];
     while (fscanf(intpr, "%s", w) != EOF)
     {
         node *n = malloc(sizeof(node));
@@ -98,7 +98,6 @@ bool load(const char *dictionary)
             }
         }
     }
-    free(w);
     return true;
 }
 
