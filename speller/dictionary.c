@@ -51,7 +51,6 @@ unsigned int hash(const char *word)
     }
 }
 
-int wordc = 0;
 
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
@@ -62,13 +61,12 @@ bool load(const char *dictionary)
         return false;
     }
 
-    char w[LENGTH + 1];
+    char *w = malloc(N + 1);
     while (fscanf(intpr, "%s", w) != EOF)
     {
         node *n = malloc(sizeof(node));
         if (n == NULL)
         {
-            free(n);
             return false;
         }
         strcpy(n->word, w);
@@ -77,17 +75,14 @@ bool load(const char *dictionary)
         {
             n->next = NULL;
             table[z] = n;
-            wordc++;
         }
         else if (strcasecmp(n->word, table[z]->word) < 0)
         {
             n->next = table[z];
             table[z] = n;
-            wordc++;
         }
         else
         {
-            wordc++;
             for (node *ptr = table[z]; ptr != NULL; ptr = ptr->next)
             {
                 if (ptr->next == NULL)
@@ -103,19 +98,19 @@ bool load(const char *dictionary)
             }
         }
     }
-    fclose(intpr);
+    free(w);
     return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    wordc = 0;
+    int wordc = 0;
     for (int i = 0; i <= N; i++)
     {
         for (node *ptr = table[i]; ptr != NULL; ptr = ptr->next)
         {
-            wordc++;
+            wordc += 1;
         }
     }
     return wordc;
