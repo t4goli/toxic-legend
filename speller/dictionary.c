@@ -79,26 +79,10 @@ bool load(const char *dictionary)
             n->next = NULL;
             table[z] = n;
         }
-        else if (strcasecmp(n->word, table[z]->word) < 0)
+        else
         {
             n->next = table[z];
             table[z] = n;
-        }
-        else
-        {
-            for (node *ptr = table[z]; ptr != NULL; ptr = ptr->next)
-            {
-                if (ptr->next == NULL)
-                {
-                    ptr->next = n;
-                    break;
-                }
-                if (strcasecmp(n->word, ptr->next->word) < 0)
-                {
-                    n->next = ptr->next;
-                    ptr->next = n;
-                }
-            }
         }
     }
     return true;
