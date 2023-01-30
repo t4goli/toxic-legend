@@ -9,6 +9,9 @@
 #include <stdlib.h>
 #include "dictionary.h"
 
+// Dictionary Word Count
+int wc = 0;
+
 // Represents a node in a hash table
 typedef struct node
 {
@@ -78,11 +81,13 @@ bool load(const char *dictionary)
         {
             n->next = NULL;
             table[z] = n;
+            wc++;
         }
         else
         {
             n->next = table[z];
             table[z] = n;
+            wc++;
         }
     }
     fclose(f);
@@ -93,15 +98,7 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    int wordc = 0;
-    for (int i = 0; i <= N; i++)
-    {
-        for (node *ptr = table[i]; ptr != NULL; ptr = ptr->next)
-        {
-            wordc += 1;
-        }
-    }
-    return wordc;
+    return wc;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
