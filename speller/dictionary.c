@@ -59,9 +59,10 @@ bool load(const char *dictionary)
     {
         return false;
     }
+
+    char *w = NULL;
     while (fscanf(intpr, "%s", w) != EOF)
     {
-        char *w = NULL;
         node *n = malloc(sizeof(node));
         if (n == NULL)
         {
