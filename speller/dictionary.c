@@ -69,19 +69,19 @@ bool load(const char *dictionary)
             return false;
         }
         strcpy(n->word, w);
-        int index = hash(n->word);
-        if (table[index] == NULL)
+        int z = hash(n->word);
+        if (table[z] == NULL)
         {
-            table[index] = n;
+            table[z] = n;
         }
-        else if (strcasecmp(n->word, table[index]->word) < 0)
+        else if (strcasecmp(n->word, table[z]->word) < 0)
         {
-            n->next = table[index];
-            table[index] = n;
+            n->next = table[z];
+            table[z] = n;
         }
         else
         {
-            for (node *ptr = table[index]; ptr != NULL; ptr = ptr->next)
+            for (node *ptr = table[z]; ptr != NULL; ptr = ptr->next)
             {
                 if (ptr->next == NULL)
                 {
