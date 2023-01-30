@@ -60,16 +60,15 @@ bool load(const char *dictionary)
         return false;
     }
 
-    while (fscanf(intpr, "%s", w) != EOF)
+    while (fscanf(intpr, "%s", char *w) != EOF)
     {
         node *n = malloc(sizeof(node));
-        int z = hash(n->word);
-        char *w = malloc(z + 1);
         if (n == NULL)
         {
             return false;
         }
         strcpy(n->word, w);
+        int z = hash(n->word);
         if (table[z] == NULL)
         {
             table[z] = n;
@@ -95,7 +94,7 @@ bool load(const char *dictionary)
                 }
             }
         }
-        free(w);
+    free(w);
     }
     return true;
 }
