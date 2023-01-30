@@ -1,5 +1,8 @@
 // Implements a spell-checker
 
+// Wordcount of Dictionary
+int wordc = 0;
+
 #include <ctype.h>
 #include <stdio.h>
 #include <sys/resource.h>
@@ -16,9 +19,6 @@
 
 // Prototype
 double calculate(const struct rusage *b, const struct rusage *a);
-
-// Wordcount of Dictionary
-int wordc = 0;
 
 int main(int argc, char *argv[])
 {
