@@ -50,7 +50,7 @@ unsigned int hash(const char *word)
         return l % N;
     }
 }
-int wordc = 0;
+
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
@@ -103,6 +103,14 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
+    int wordc = 0;
+    for (int i = 0; i <= N; i++)
+    {
+        for (node *ptr = table[i]; ptr != NULL; ptr = ptr->next)
+        {
+            wordc += 1;
+        }
+    }
     return wordc;
 }
 
