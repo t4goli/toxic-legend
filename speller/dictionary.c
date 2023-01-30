@@ -51,8 +51,6 @@ unsigned int hash(const char *word)
     }
 }
 
-// Dictionary Word Count
-int wc = 0;
 
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
@@ -80,13 +78,11 @@ bool load(const char *dictionary)
         {
             n->next = NULL;
             table[z] = n;
-            wc++;
         }
         else
         {
             n->next = table[z];
             table[z] = n;
-            wc++;
         }
     }
     fclose(f);
@@ -97,17 +93,15 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    int t = 0;
+    int wordc = 0;
     for (int i = 0; i <= N; i++)
     {
-        node *ptr = table[i];
-        while (ptr != NULL)
+        for (node *ptr = table[i]; ptr != NULL; ptr = ptr->next)
         {
-            node *next = ptr->next;
-            ptr = next;
+            wordc += 1;
         }
     }
-    return t;
+    return wordc;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
