@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
 
     // Wordcount of Dictionary
     int wordc;
+    *pwc = &wordc;
 
     // Exit if dictionary not loaded
     if (!loaded)
