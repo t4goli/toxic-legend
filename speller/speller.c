@@ -27,8 +27,6 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Wordcount of Dictionary
-    int wordc = 0;
 
     // Structures for timing data
     struct rusage before, after;
@@ -51,6 +49,9 @@ int main(int argc, char *argv[])
         printf("Could not load %s.\n", dictionary);
         return 1;
     }
+
+    // Wordcount of Dictionary
+    int wordc;
 
 
     // Calculate time to load dictionary
