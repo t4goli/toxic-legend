@@ -51,6 +51,7 @@ unsigned int hash(const char *word)
     }
 }
 
+int wordc;
 
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
@@ -61,7 +62,7 @@ bool load(const char *dictionary)
         return false;
     }
 
-    char *w = malloc(N + 1);
+    char w[LENGTH + 1];
     while (fscanf(intpr, "%s", w) != EOF)
     {
         node *n = malloc(sizeof(node));
@@ -98,7 +99,6 @@ bool load(const char *dictionary)
             }
         }
     }
-    free(w);
     return true;
 }
 
