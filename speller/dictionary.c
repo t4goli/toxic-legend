@@ -55,20 +55,20 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    FILE *intpr = fopen(dictionary, "r");
-    if (intpr == NULL)
+    FILE *f = fopen(dictionary, "r");
+    if (f == NULL)
     {
-        fclose(intpr);
+        fclose(f);
         return false;
     }
 
     char w[N + 1];
-    while (fscanf(intpr, "%s", w) != EOF)
+    while (fscanf(f, "%s", w) != EOF)
     {
         node *n = malloc(sizeof(node));
         if (n == NULL)
         {
-            fclose(intpr);
+            fclose(f);
             free(n);
             return false;
         }
@@ -79,12 +79,13 @@ bool load(const char *dictionary)
             n->next = NULL;
             table[z] = n;
         }
-        else
+        else 
         {
             n->next = table[z];
             table[z] = n;
         }
     }
+    fclose(f);
     return true;
 }
 
