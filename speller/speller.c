@@ -1,8 +1,5 @@
 // Implements a spell-checker
 
-// Wordcount of Dictionary
-int wordc = 0;
-
 #include <ctype.h>
 #include <stdio.h>
 #include <sys/resource.h>

@@ -50,7 +50,7 @@ unsigned int hash(const char *word)
         return l % N;
     }
 }
-
+int wordc = 0;
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
