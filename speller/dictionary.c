@@ -58,6 +58,7 @@ bool load(const char *dictionary)
     FILE *intpr = fopen(dictionary, "r");
     if (intpr == NULL)
     {
+        fclose(intpr);
         return false;
     }
 
@@ -67,6 +68,8 @@ bool load(const char *dictionary)
         node *n = malloc(sizeof(node));
         if (n == NULL)
         {
+            fclose(intpr);
+            free(n);
             return false;
         }
         strcpy(n->word, w);
