@@ -72,6 +72,7 @@ bool load(const char *dictionary)
         int z = hash(n->word);
         if (table[z] == NULL)
         {
+            n->next = NULL;
             table[z] = n;
         }
         else if (strcasecmp(n->word, table[z]->word) < 0)
