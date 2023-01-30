@@ -44,9 +44,6 @@ int main(int argc, char *argv[])
     bool loaded = load(dictionary);
     getrusage(RUSAGE_SELF, &after);
 
-    // Wordcount of Dictionary
-    int wordc;
-    *pwc = &wordc;
 
     // Exit if dictionary not loaded
     if (!loaded)
