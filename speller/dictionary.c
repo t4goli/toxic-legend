@@ -104,22 +104,6 @@ unsigned int size(void)
     return wordc;
 }
 
-//Counts words in dictionary lol
-int count(const char *dictionary)
-{
-    FILE *intpr = fopen(dictionary, "r");
-    if (intpr == NULL)
-    {
-        return false;
-    }
-    int wc;
-    while (fscanf(intpr, "%s", w) != EOF)
-    {
-        wc += 1;
-    }
-    return wc;
-}
-
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {

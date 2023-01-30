@@ -17,6 +17,8 @@
 // Prototype
 double calculate(const struct rusage *b, const struct rusage *a);
 
+// Wordcount of Dictionary
+int wordc = 0;
 
 int main(int argc, char *argv[])
 {
@@ -49,10 +51,6 @@ int main(int argc, char *argv[])
         printf("Could not load %s.\n", dictionary);
         return 1;
     }
-
-    // Wordcount of Dictionary
-    int wordc;
-
 
     // Calculate time to load dictionary
     time_load = calculate(&before, &after);
