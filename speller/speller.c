@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     }
 
     // Wordcount of Dictionary
-    int wordc;
+    int wordc = 0;
 
     // Structures for timing data
     struct rusage before, after;
