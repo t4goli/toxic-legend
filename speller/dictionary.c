@@ -77,14 +77,17 @@ bool load(const char *dictionary)
         {
             n->next = NULL;
             table[z] = n;
+            wordc++;
         }
         else if (strcasecmp(n->word, table[z]->word) < 0)
         {
             n->next = table[z];
             table[z] = n;
+            wordc++;
         }
         else
         {
+            wordc++;
             for (node *ptr = table[z]; ptr != NULL; ptr = ptr->next)
             {
                 if (ptr->next == NULL)
