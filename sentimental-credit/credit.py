@@ -7,7 +7,7 @@ def main():
     for i in range(1, pholder, *10):
         length += 1
         pholder / 10
-    if length % 2 is 1:
+    if length % 2 == 1:
         plength = length + 1
     else:
         plength = length
@@ -21,10 +21,10 @@ def main():
         add = (num % (q * 10) / q)
         sum = sum + (add % 10) + (add / 10)
         q *= 100
-    if sum % 10 is 0:
-        if num / 1000000000000000 is 4 or length is 13:
+    if sum % 10 == 0:
+        if num / 1000000000000000 == 4 or length == 13:
             print("VISA")
-        elif length is 15 and (num / 10000000000000 is 34 or num / 10000000000000 is 37):
+        elif length == 15 and (num / 10000000000000 == 34 or num / 10000000000000 == 37):
             print("AMEX")
         elif num / 100000000000000 > 50 and num / 100000000000000 < 56:
             print("MASTERCARD")
@@ -36,7 +36,7 @@ def main():
 
 def get_num():
     while True:
-        num = get_int()
+        num = get_int("Number: ")
         if num > 0:
             return num
 
