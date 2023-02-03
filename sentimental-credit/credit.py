@@ -30,11 +30,11 @@ def main():
         q *= 100
         i += 1
     if sum % 10 == 0:
-        if num / 1000000000000000 == 4 or length == 13:
+        if (num / 1000000000000000 == 4) or (length == 13):
             print("VISA")
-        elif length == 15 and (num / 10000000000000 == 34 or num / 10000000000000 == 37):
+        elif (length == 15) and ((num / 10000000000000 == 34) or (num / 10000000000000 == 37)):
             print("AMEX")
-        elif num / 100000000000000 > 50 and num / 100000000000000 < 56:
+        elif (num / 100000000000000 > 50) and (num / 100000000000000 < 56):
             print("MASTERCARD")
         else:
             print("INVALID")
