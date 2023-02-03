@@ -1,12 +1,14 @@
 # TODO
-from cs50 import get_int
+from cs50 import get_float
 
 def main():
     length = 1
     pholder = get_num()
-    for i in range(1, pholder, *10):
+    i = 1
+    while i < pholder:
         length += 1
         pholder / 10
+        i *= 10
     if length % 2 == 1:
         plength = length + 1
     else:
@@ -36,7 +38,7 @@ def main():
 
 def get_num():
     while True:
-        num = get_int("Number: ")
+        num = get_float("Number: ")
         if num > 0:
             return num
 
