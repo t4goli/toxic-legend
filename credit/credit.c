@@ -19,7 +19,6 @@ int main(void)
         length++;
         pholder = num / 10;
     }
-
     int add;
     int sum;
     long q = 10;
