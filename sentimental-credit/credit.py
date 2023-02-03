@@ -1,8 +1,8 @@
 # TODO
-from cs50 import get_int
+from cs50 import get_float
 
 def main():
-    num = get_num()
+    num = long(get_num())
     length = 1
     pholder = num
     i = 1
@@ -44,7 +44,7 @@ def main():
 
 def get_num():
     while True:
-        num = get_long("Number: ")
+        num = get_float("Number: ")
         if num > 0:
             return num
 
