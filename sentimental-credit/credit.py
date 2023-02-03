@@ -1,6 +1,7 @@
 # TODO
 from cs50 import get_float
 
+
 def main():
     num = int(get_num())
     length = 1
