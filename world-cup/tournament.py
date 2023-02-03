@@ -67,7 +67,7 @@ def simulate_tournament(teams):
     {
         w = simulate_round(w)
     }
-    return w[0]["teams"]
+    return w[0]["team"]
 
 
 if __name__ == "__main__":
