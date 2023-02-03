@@ -33,15 +33,15 @@ int main(void)
     {
         plength = length;
     }
+
     for (int i = 0; i < (length / 2); i++)
     {
         add = ((num % (q * 10)) / q) * 2;
-        printf("%i\n", add);
-        printf("%i\n", sum);
+
         sum = sum + (add % 10) + (add / 10);
         q *= 100;
     }
-    printf("%i\n", sum);
+    q = 1;
     for (int i = 0; i < (plength / 2); i++)
     {
         add = (num % (q * 10) / q);
