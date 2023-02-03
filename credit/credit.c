@@ -44,11 +44,11 @@ int main(void)
     q = 1;
     for (int i = 0; i < (plength / 2); i++)
     {
-        add = (num % (q * 10) / q);
+        add = num % (q * 10) / q;
         sum = sum + (add % 10) + (add / 10);
         q *= 100;
     }
-
+    printf("%i\n", sum);
     if (sum % 10 == 0)
     {
         if (num / 1000000000000000 == 4 || length == 13)

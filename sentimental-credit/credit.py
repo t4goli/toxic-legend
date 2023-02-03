@@ -18,23 +18,23 @@ def main():
     i = 0
     sum = 0
     while i < (length/2):
-        add = (((num % (q * 10))) / q) * 2
-        sum = sum + (add % 10) + (add // 10)
+        add = ((int(num % (q * 10))) // q) * 2
+        sum = sum + int(add % 10) + (add // 10)
         q *= 100
         i += 1
     q = 1
     i = 0
     while i < (plength/2):
-        add = (num % (q * 10) / q)
-        sum = sum + (add % 10) + (add / 10)
+        add = int(num % (q * 10)) // q
+        sum = sum + int(add % 10) + int(add / 10)
         q *= 100
         i += 1
     if sum % 10 == 0:
-        if (num / 1000000000000000 == 4) or (length == 13):
+        if (num // 1000000000000000 == 4) or (length == 13):
             print("VISA")
-        elif (length == 15) and ((num / 10000000000000 == 34) or (num / 10000000000000 == 37)):
+        elif (length == 15) and ((num // 10000000000000 == 34) or (num // 10000000000000 == 37)):
             print("AMEX")
-        elif (num / 100000000000000 > 50) and (num / 100000000000000 < 56):
+        elif (num // 100000000000000 > 50) and (num // 100000000000000 < 56):
             print("MASTERCARD")
         else:
             print("INVALID")
