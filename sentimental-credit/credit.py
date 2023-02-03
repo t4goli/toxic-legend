@@ -3,8 +3,9 @@ from cs50 import get_float
 
 def main():
     length = 1
-    pholder = get_num()
+    num = get_num()
     i = 1
+    pholder = num
     while i < pholder:
         length += 1
         pholder / 10
@@ -15,16 +16,19 @@ def main():
         plength = length
     q = 10
     i = 0
+    sum = 0
     while i < (length/2):
         add = ((num % (q * 10)) / q) * 2
         sum = sum + (add % 10) + (add / 10)
         q *= 100
         i += 1
     q = 1
-    for i in range(plength/2):
+    i = 0
+    while i < (plength/2):
         add = (num % (q * 10) / q)
         sum = sum + (add % 10) + (add / 10)
         q *= 100
+        i += 1
     if sum % 10 == 0:
         if num / 1000000000000000 == 4 or length == 13:
             print("VISA")
