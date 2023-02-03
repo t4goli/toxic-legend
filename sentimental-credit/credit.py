@@ -2,7 +2,7 @@
 from cs50 import get_float
 
 def main():
-    num = long(get_num())
+    num = int(get_num())
     length = 1
     pholder = num
     i = 1
@@ -16,7 +16,7 @@ def main():
         plength = length
     q = 10
     i = 0
-    sum
+    sum = 0
     while i < (length/2):
         add = (((num % (q * 10))) / q) * 2
         sum = sum + (add % 10) + (add / 10)
