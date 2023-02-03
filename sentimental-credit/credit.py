@@ -2,10 +2,10 @@
 from cs50 import get_float
 
 def main():
-    length = 1
     num = get_num()
-    i = 1
+    length = 1
     pholder = num
+    i = 1
     while i < pholder:
         length += 1
         pholder / 10

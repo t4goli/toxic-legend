@@ -33,7 +33,6 @@ int main(void)
     {
         plength = length;
     }
-
     for (int i = 0; i < (length / 2); i++)
     {
         add = ((num % (q * 10)) / q) * 2;
