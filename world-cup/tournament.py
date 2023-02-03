@@ -18,6 +18,8 @@ def main():
     # TODO: Read teams into memory from file
     with open(argv[2]) as file:
         reader = csv.Dictreader(file)
+            for row in reader:
+                team.append()
 
 
     counts = {}
