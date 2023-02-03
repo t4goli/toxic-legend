@@ -17,15 +17,15 @@ def main():
     teams = []
     # TODO: Read teams into memory from file
     with open(sys.argv[1]) as file:
-        reader = csv.Dictreader(file)
-            for team in reader:
-                team[rating] = int(team"rating")
-                teams.append(team)
+        reader = csv.DictReader(file)
+        for team in reader:
+            team["rating"] = int(team["rating"])
+            teams.append(team)
 
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
-    for i in range(N)
+    for i in range(N):
         w = simulate_tournament(teams)
         if w in counts:
             counts[w] += 1
@@ -63,10 +63,8 @@ def simulate_round(teams):
 def simulate_tournament(teams):
     """Simulate a tournament. Return name of winning team."""
     w = simulate_round(teams)
-    while len(w) > 1
-    {
+    while len(w) > 1:
         w = simulate_round(w)
-    }
     return w[0]["team"]
 
 
