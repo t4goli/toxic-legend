@@ -18,7 +18,7 @@ def main():
     i = 0
     sum = 0
     while i < (length/2):
-        add = ((num % (q * 10)) / q) * 2
+        add = (int((num % (q * 10))) / q) * 2
         print(f"{add}")
         sum = sum + (add % 10) + (add / 10)
         print("f{sum}")
