@@ -14,10 +14,12 @@ def main():
     else:
         plength = length
     q = 10
-    for i in range (length/2):
+    i = 0
+    while i < (length/2):
         add = ((num % (q * 10)) / q) * 2
         sum = sum + (add % 10) + (add / 10)
         q *= 100
+        i += 1
     q = 1
     for i in range(plength/2):
         add = (num % (q * 10) / q)
