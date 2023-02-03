@@ -18,15 +18,15 @@ def main():
     i = 0
     sum = 0
     while i < (length/2):
-        add = (((num % (q * 10))) // q) * 2
+        add = (((num % (q * 10))) / q) * 2
         sum = sum + (add % 10) + (add // 10)
         q *= 100
         i += 1
     q = 1
     i = 0
     while i < (plength/2):
-        add = (num % (q * 10) // q)
-        sum = sum + (add % 10) + (add // 10)
+        add = (num % (q * 10) / q)
+        sum = sum + (add % 10) + (add / 10)
         q *= 100
         i += 1
     if sum % 10 == 0:
