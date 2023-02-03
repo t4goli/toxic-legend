@@ -5,5 +5,5 @@ while num > 8 or num < 1
     num = get_int("Height: ")
 
 for i in range(num)
-    for j in range(num)
+    for j = numin range(num)
         print
