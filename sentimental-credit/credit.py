@@ -8,7 +8,7 @@ def main():
     i = 1
     while i < pholder:
         length += 1
-        int(pholder / 10)
+        pholder = int(num / 10)
         i *= 10
     if length % 2 == 1:
         plength = length + 1
