@@ -2,13 +2,13 @@
 from cs50 import get_float
 
 def main():
-    num = get_num()
+    num = int(get_num())
     length = 1
     pholder = num
     i = 1
     while i < pholder:
         length += 1
-        pholder / 10
+        int(pholder / 10)
         i *= 10
     if length % 2 == 1:
         plength = length + 1
@@ -16,9 +16,9 @@ def main():
         plength = length
     q = 10
     i = 0
-    sum = 0
+    sum
     while i < (length/2):
-        add = (int((num % (q * 10))) / q) * 2
+        add = (((num % (q * 10))) / q) * 2
         sum = sum + (add % 10) + (add / 10)
         q *= 100
         i += 1
