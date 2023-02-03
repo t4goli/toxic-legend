@@ -9,7 +9,9 @@ Times:
 
 Questions:
 
-Which predictions, if any, proved incorrect as you increased the number of simulations?: As the number of simulations increased, more countries made an appearance on the list
+Which predictions, if any, proved incorrect as you increased the number of simulations?:
+As the number of simulations increased, more countries made an appearance on the list. However, the countries with the top ratings remained in similar positions, or were swapped based on trial numbers.
 
 Suppose you're charged a fee for each second of compute time your program uses.
-After how many simulations would you call the predictions "good enough"?: TODO
+After how many simulations would you call the predictions "good enough"?:
+I would call the predictions "good enough" after 10000 trials. While the amount of time spent is a consequence, the data produced is more accurate and begins to stabilize thereafter.
