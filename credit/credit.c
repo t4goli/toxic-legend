@@ -36,11 +36,12 @@ int main(void)
     for (int i = 0; i < (length / 2); i++)
     {
         add = ((num % (q * 10)) / q) * 2;
-
+        printf("%i\n", add);
+        printf("%i\n", sum);
         sum = sum + (add % 10) + (add / 10);
         q *= 100;
     }
-    q = 1;
+    printf("%i\n", sum);
     for (int i = 0; i < (plength / 2); i++)
     {
         add = (num % (q * 10) / q);
