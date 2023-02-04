@@ -33,7 +33,8 @@ def count_words(text):
                 l = 1
             else:
                 count += 1
-    print(f"{count}")
+    if count == 0:
+        count = 1
     return count
 
 def count_sentences(text):
