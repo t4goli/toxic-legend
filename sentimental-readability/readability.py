@@ -18,7 +18,7 @@ def main():
 
 def count_letters(text):
     count = 0
-    for i in range(text):
+    for i in range(len(text)):
         if (text[i] > 64 and text[i] < 91) or (text[i] > 96 and text[i] < 123):
             count += 1
     return count
@@ -26,7 +26,7 @@ def count_letters(text):
 def count_words(text):
     l = 0
     count = 0
-    for i in range(text):
+    for i in range(len(text)):
         if text[i] == 32:
             if l == 0:
                 count += 2
@@ -37,7 +37,7 @@ def count_words(text):
 
 def count_sentences(text):
     count = 0
-    for i in range(text):
+    for i in range(len(text)):
         if text[i] == 33 or text[i] == 63 or text[i] == 46:
             count += 1
     return count
