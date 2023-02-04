@@ -38,7 +38,7 @@ def count_words(text):
 def count_sentences(text):
     count = 0
     for i in range(len(text)):
-        if text[i] == 33 or text[i] == 63 or text[i] == 46:
+        if int(text[i]) == 33 or text[i] == 63 or text[i] == 46:
             count += 1
     return count
 
