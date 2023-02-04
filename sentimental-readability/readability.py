@@ -1,6 +1,7 @@
 # TODO
 from cs50 import get_string
 
+
 def main():
     text = get_string("Text: ")
     W = count_words(text)
@@ -23,6 +24,7 @@ def count_letters(text):
             count += 1
     return count
 
+
 def count_words(text):
     l = 0
     count = 0
@@ -37,11 +39,13 @@ def count_words(text):
         count = 1
     return count
 
+
 def count_sentences(text):
     count = 0
     for i in range(len(text)):
         if ord(text[i]) == 33 or ord(text[i]) == 63 or ord(text[i]) == 46:
             count += 1
     return count
+
 
 main()
