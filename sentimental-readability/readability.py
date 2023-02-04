@@ -4,7 +4,6 @@ from cs50 import get_string
 def main():
     text = get_string("Text: ")
     W = count_words(text)
-    print(f)
     L = (count_letters(text) * 100.0) / W
     S = (count_sentences(text) * 100.0) / W
     index = round(0.0588 * L - 0.296 * S - 15.8)
