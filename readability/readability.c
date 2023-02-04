@@ -12,9 +12,9 @@ int count_sentences(string text);
 int main(void)
 {
     string text = get_string("Text: ");
-    int w = count_words(text);
-    double L = (count_letters(text) * 100.0) / w;
-    double S = (count_sentences(text) * 100.0) / w;
+    int W = count_words(text);
+    double L = (count_letters(text) * 100.0) / W;
+    double S = (count_sentences(text) * 100.0) / W;
     int index = round(0.0588 * L - 0.296 * S - 15.8);
 
     if (index > 0 && index < 17)
