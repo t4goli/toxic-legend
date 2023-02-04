@@ -21,6 +21,7 @@ def count_letters(text):
     for i in range(len(text)):
         if ((ord(text[i]) > 64 and ord(text[i]) < 91)) or (ord(text[i]) > 96 and ord(text[i]) < 123):
             count += 1
+    print(f"{count}")
     return count
 
 def count_words(text):
