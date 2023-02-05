@@ -24,7 +24,7 @@ def main():
     STRs = list(data[0].keys())[1:]
     names = []
     for STR in STRs:
-        names[STR] = int(names[STR])
+        names["{STR}"] = int(names["{STR}"])
 
 
     # TODO: Check database for matching profiles
