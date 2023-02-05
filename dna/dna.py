@@ -22,7 +22,7 @@ def main():
             var = row
 
     # TODO: Find longest match of each STR in DNA sequence
-    match = []
+    match = [len(STRs)]
     i = 0
     for STR in STRs:
         match[i] = longest_match(var, STR)
