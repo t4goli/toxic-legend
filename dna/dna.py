@@ -11,12 +11,11 @@ def main():
     # TODO: Read database file into a variable
     with open(sys.argv[1]) as file:
         reader = csv.reader(file)
-        next(csv.reader)
         for name in reader:
             i = 0
             for column in reader:
                 i += 1
-                name["i"] = int(name["i"])
+                name[i] = int(name["i"])
                 names.append(name)
     print(f"{names}")
 
