@@ -12,6 +12,7 @@ def main():
     table: List[Dict[str, int]] = []
     with open(sys.argv[1]) as file:
         reader = csv.reader(file, delimiter=',')
+        header = next(reader)
         for name in reader
             name["]
 
