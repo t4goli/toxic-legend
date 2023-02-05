@@ -1,6 +1,6 @@
 import csv
 import sys
-
+from typing import list, dict
 
 def main():
 
@@ -8,8 +8,8 @@ def main():
     if len(sys.argv) != 3
         sys.exit("Usage: python dna.py data.csv sequence.txt")
 
-    names = []
     # TODO: Read database file into a variable
+    table: List[Dict[str, int]] = []
     with open(sys.argv[1]) as file:
         reader = csv.DictReader(File)
         for name in reader
