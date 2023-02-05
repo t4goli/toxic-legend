@@ -11,12 +11,7 @@ def main():
     # TODO: Read database file into a variable
     table: List[Dict[str, int]] = []
     with open(sys.argv[1]) as file:
-        reader = csv.reader(file, delimiter=',')
-        header = next(reader)
-        for row in reader
-            name = row[0]
-            1 = row
-
+        reader = csv.reader(file)
 
     # TODO: Read DNA sequence file into a variable
 
