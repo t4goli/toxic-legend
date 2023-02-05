@@ -1,17 +1,25 @@
 import csv
 import sys
-from typing import list, dict
 
 def main():
 
     # TODO: Check for command-line usage
-    if len(sys.argv) != 3
+    if len(sys.argv) != 3:
         sys.exit("Usage: python dna.py data.csv sequence.txt")
 
+    names = []
     # TODO: Read database file into a variable
-    table: List[Dict[str, int]] = []
     with open(sys.argv[1]) as file:
         reader = csv.reader(file)
+        next(csv.reader)
+        for name in reader:
+            i = 0
+            for column in reader:
+                i += 1
+                name["i"] = int(name["i"])
+                names.append(name)
+    print(f"{names}")
+
 
     # TODO: Read DNA sequence file into a variable
 
