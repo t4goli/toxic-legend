@@ -11,7 +11,7 @@ def main():
     names = {}
     # TODO: Read database file into a variable
     with open(sys.argv[1]) as file:
-        reader = csv.reader(file)
+        reader = csv.Dictreader(file)
         i = 0
         for column in reader:
             columns[i] = column[]
