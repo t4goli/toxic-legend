@@ -25,7 +25,7 @@ def main():
     matches = {}
     i = 0
     for STR in STRs:
-        matches{"{STR}"} = longest_match(var, STR)
+        matches{'{STR}'} = longest_match(var, STR)
 
 
 
