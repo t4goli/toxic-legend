@@ -21,7 +21,8 @@ def main():
             var = row
 
     # TODO: Find longest match of each STR in DNA sequence
-
+    STR = []
+    
 
     # TODO: Check database for matching profiles
 
