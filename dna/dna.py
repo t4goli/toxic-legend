@@ -11,7 +11,7 @@ def main():
     # TODO: Read database file into a variable
     table: List[Dict[str, int]] = []
     with open(sys.argv[1]) as file:
-        reader = csv.DictReader(File)
+        reader = csv.reader(file, delimiter=',')
         for name in reader
             name["]
 
