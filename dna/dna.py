@@ -7,14 +7,13 @@ def main():
     if len(sys.argv) != 3:
         sys.exit("Usage: python dna.py data.csv sequence.txt")
 
-    columns = []
-    names = {}
+    data = []
     # TODO: Read database file into a variable
     with open(sys.argv[1]) as file:
         reader = csv.Dictreader(file)
         i = 0
-        for column in reader:
-            columns[i] = column[]
+        for row in reader:
+            data.append(row)
 
 
 
