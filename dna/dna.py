@@ -13,8 +13,9 @@ def main():
     with open(sys.argv[1]) as file:
         reader = csv.reader(file, delimiter=',')
         header = next(reader)
-        for name in reader
-            name["]
+        for row in reader
+            name = row[0]
+            1 = row
 
 
     # TODO: Read DNA sequence file into a variable
