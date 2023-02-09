@@ -42,7 +42,7 @@ def main():
                 nums = list(data[i].values())
                 k = 0
                 for j in range(len(STRs)):
-                    if nums[j + 1] == match[j]:
+                    if int(nums[j + 1]) == match[j]:
                         k += 1
                 if k == len(STRs):
                     print(nums[0])
