@@ -28,7 +28,7 @@ def main():
         match[i] = longest_match(var, STR)
         i += 1
 
-    print(match)
+    print(var)
 
 
     # TODO: Check database for matching profiles
@@ -43,8 +43,7 @@ def longest_match(sequence, subsequence):
     longest_run = 0
     subsequence_length = len(subsequence)
     sequence_length = len(sequence)
-    print(subsequence_length)
-    print(sequence_length)
+
     # Check each character in sequence for most consecutive runs of subsequence
     for i in range(sequence_length):
 
