@@ -41,9 +41,13 @@ def main():
                 i += 1
                 nums = list(data[i].values())
                 k = 0
+                print(nums[0])
+                print(nums[1])
+                print(match[0])
                 for j in range(len(STRs)):
                     if int(nums[j + 1]) == match[j]:
                         k += 1
+                print(k)
                 if k == len(STRs):
                     print(nums[0])
                     return
