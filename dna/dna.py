@@ -32,13 +32,19 @@ def main():
     with open(sys.argv[1]) as file:
         cmon = csv.reader(file)
         row_count = sum(1 for row in cmon)
-    for i in range(row_count)
+    for i in range(row_count):
         with open(sys.argv[1]) as file:
-        reader = csv.DictReader(file)
-        next(reader)
-        for row in reader:
-            nums = list(data[0].keys())
-
+            reader = csv.DictReader(file)
+            next(reader)
+            for row in reader:
+                nums = list(data[0].keys())
+                k = 0
+                for i in range(len(STRs)):
+                    if nums[i + 1] == match[i]:
+                        k += 1
+                if k == len(STRs):
+                    print(nums[0])
+                    return
 
 
 def longest_match(sequence, subsequence):
