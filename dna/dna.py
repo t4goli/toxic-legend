@@ -36,11 +36,13 @@ def main():
         with open(sys.argv[1]) as file:
             reader = csv.DictReader(file)
             next(reader)
+            i = 0
             for row in reader:
-                nums = list(data[0].keys())
+                i += 1
+                nums = list(data[i].values())
                 k = 0
-                for i in range(len(STRs)):
-                    if nums[i + 1] == match[i]:
+                for j in range(len(STRs)):
+                    if nums[j + 1] == match[j]:
                         k += 1
                 if k == len(STRs):
                     print(nums[0])
