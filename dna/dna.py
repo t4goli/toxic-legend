@@ -29,13 +29,16 @@ def main():
         i += 1
 
     # TODO: Check database for matching profiles
-    for 
     with open(sys.argv[1]) as file:
+        cmon = csv.reader(file)
+        row_count = sum(1 for row in cmon)
+    for i in range(row_count)
+        with open(sys.argv[1]) as file:
         reader = csv.DictReader(file)
+        next(reader)
         for row in reader:
-            data.append(row)
-    STRs = list(data[0].keys())[1:]
-    return
+            nums = list(data[0].keys())
+
 
 
 def longest_match(sequence, subsequence):
