@@ -25,8 +25,7 @@ def main():
     match = [None] * len(STRs)
     i = 0
     for STR in STRs:
-        print(STR)
-        print(longest_match(var, STR))
+        match[i] = longest_match(var, STR)
         i += 1
 
     print(match)
@@ -39,7 +38,8 @@ def main():
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
-
+    print(sequence)
+    print(subsequence)
     # Initialize variables
     longest_run = 0
     subsequence_length = len(subsequence)
