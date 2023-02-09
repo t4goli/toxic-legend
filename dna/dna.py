@@ -24,14 +24,14 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence
     print(STRs)
     print(len(STRs))
-    match = []
+    match = [None] * len(STRs)
     print(len(match))
     i = 0
     for STR in STRs:
         match[i] = longest_match(var, STR)
         i += 1
 
-
+    print(match)
 
 
     # TODO: Check database for matching profiles
