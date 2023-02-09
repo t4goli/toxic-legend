@@ -25,12 +25,9 @@ def main():
     match = [None] * len(STRs)
     i = 0
     for STR in STRs:
-        match[i] = longest_match(var, STR)
+        match[i] = longest_match(var[0], STR)
         i += 1
-
-    print(var)
-
-
+    
     # TODO: Check database for matching profiles
 
     return
