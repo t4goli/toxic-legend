@@ -47,6 +47,8 @@ def main():
                 if k == len(STRs):
                     print(nums[0])
                     return
+    print("No Match")
+
 
 
 def longest_match(sequence, subsequence):
