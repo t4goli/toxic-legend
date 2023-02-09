@@ -27,9 +27,14 @@ def main():
     for STR in STRs:
         match[i] = longest_match(var[0], STR)
         i += 1
-    
-    # TODO: Check database for matching profiles
 
+    # TODO: Check database for matching profiles
+    for 
+    with open(sys.argv[1]) as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            data.append(row)
+    STRs = list(data[0].keys())[1:]
     return
 
 
