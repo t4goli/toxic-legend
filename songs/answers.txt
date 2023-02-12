@@ -1,2 +1,3 @@
 Considering valence is supposed to represent the positivity of a song, a song with a higher valence weightage, dancibility, and energy might portray that the listener is into songs that are uplifting, high beats, and are overall positive. Similarly, the opposite might indicate that the person is into calmer music or relaxing music.
-My way might not be very representative of the listener since someone who listened 
+My way might not be very representative of the listener since songs with lower valence can still contain high energy.
+A better way of calculating the aura would be grouping songs with simlar valence, dancibility, and energy weightages and seeing how those groups compare to each other in quantity. If one group beats the others by a large percentage, a mood could be assigned to that group. If groups have close numbers, perhaps a different mood can be assigned to accurately connect both.
