@@ -1,0 +1,2 @@
+Considering valence is supposed to represent the positivity of a song, a song with a higher valence weightage, dancibility, and energy might portray that the listener is into songs that are uplifting, high beats, and are overall positive. Similarly, the opposite might indicate that the person is into calmer music or relaxing music.
+My way might not be very representative of the listener since someone who listened 
