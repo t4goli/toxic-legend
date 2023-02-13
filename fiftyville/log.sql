@@ -197,7 +197,8 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = "Leggett Street"
 
 -- check who took flights from Fiftyville on the day of theft and where to
 SELECT full_name, city, abbreviation, hour, minute, name
-FROM airports JOIN flights on airports.id = flights.destination_airport_id
+FROM airports
+JOIN flights on airports.id = flights.destination_airport_id
 JOIN passengers ON flights.id = passengers.flight_id
 JOIN people on passengers.passport_number = people.passport_number
 WHERE flights.origin_airport_id
