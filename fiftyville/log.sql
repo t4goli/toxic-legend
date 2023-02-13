@@ -330,21 +330,23 @@ WHERE year = 2021 AND day = 28 AND month = 7;
 */
 
 -- bank transactions on day of theft
-SELECT account_number, transaction_type, amount
+SELECT amount, transaction_type, name
 FROM atm_transactions
+JOIN bank_accounts ON atm_transactions.account_number = bank_accounts.account_number
+JOIN people ON bank_accounts.person_id = people.id
 WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = "Leggett Street";
 /*
-+----------------+------------------+--------+
-| account_number | transaction_type | amount |
-+----------------+------------------+--------+
-| 28500762       | withdraw         | 48     |
-| 28296815       | withdraw         | 20     |
-| 76054385       | withdraw         | 60     |
-| 49610011       | withdraw         | 50     |
-| 16153065       | withdraw         | 80     |
-| 86363979       | deposit          | 10     |
-| 25506511       | withdraw         | 20     |
-| 81061156       | withdraw         | 30     |
-| 26013199       | withdraw         | 35     |
-+----------------+------------------+--------+
++--------+------------------+---------+
+| amount | transaction_type |  name   |
++--------+------------------+---------+
+| 50     | withdraw         | Bruce   |
+| 10     | deposit          | Kaelyn  |
+| 35     | withdraw         | Diana   |
+| 80     | withdraw         | Brooke  |
+| 20     | withdraw         | Kenny   |
+| 20     | withdraw         | Iman    |
+| 48     | withdraw         | Luca    |
+| 60     | withdraw         | Taylor  |
+| 30     | withdraw         | Benista |
++--------+------------------+---------+
 */
