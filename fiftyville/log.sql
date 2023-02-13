@@ -135,7 +135,7 @@ WHERE month = 7 AND day = 28 AND year = 2021;
 -- check bakery logs the day of the theft 15 min before or after the crime
 SELECT *
 FROM bakery_security_logs
-WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND (minute > 0 OR minute < 30);
+WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 0 AND minute < 30;
 /*
 +-----+------+-------+-----+------+--------+----------+---------------+
 | id  | year | month | day | hour | minute | activity | license_plate |
@@ -150,10 +150,6 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND (minute > 0 OR mi
 | 265 | 2021 | 7     | 28  | 10   | 21     | exit     | L93JTIZ       |
 | 266 | 2021 | 7     | 28  | 10   | 23     | exit     | 322W7JE       |
 | 267 | 2021 | 7     | 28  | 10   | 23     | exit     | 0NTHK55       |
-| 268 | 2021 | 7     | 28  | 10   | 35     | exit     | 1106N58       |
-| 269 | 2021 | 7     | 28  | 10   | 42     | entrance | NRYN856       |
-| 270 | 2021 | 7     | 28  | 10   | 44     | entrance | WD5M8I6       |
-| 271 | 2021 | 7     | 28  | 10   | 55     | entrance | V47T75I       |
 +-----+------+-------+-----+------+--------+----------+---------------+
 
 -- find callers and their names day of theft
