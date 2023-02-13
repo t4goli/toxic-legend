@@ -156,7 +156,7 @@ SELECT caller, people.name AS callern, receiver, people1.name AS receivern, dura
 FROM phone_calls
 JOIN people ON phone_calls.caller = people.phone_number
 JOIN people people1 on phone_calls.receiver = people1.phone_number
-WHERE year = 2021 AND day = 28 AND month = 7;
+WHERE year = 2021 AND day = 28 AND month = 7 AND duration <= 60;
 /*
 +----------------+-----------+----------------+-------------+----------+
 |     caller     |  callern  |    receiver    |  receivern  | duration |
