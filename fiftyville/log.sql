@@ -200,7 +200,7 @@ FROM airports JOIN flights on airports.id = flights.destination_airport_id
 JOIN passengers ON flights.id = passengers.flight_id
 JOIN people on passengers.passport_number = people.passport_number
 WHERE flights.origin_airport_id
-    IN (SELECT id FROM airports WHERE city = "Fiftyville") AND year = 2021 AND month = 7 AND day = 28;
+    IN (SELECT id FROM airports WHERE city = "Fiftyville") AND year = 2021 AND month = 7 AND day = 29;
 /*
 +-----------------------------------------+---------------+--------------+------+--------+---------+
 |                full_name                |     city      | abbreviation | hour | minute |  name   |
