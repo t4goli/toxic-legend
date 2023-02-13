@@ -150,6 +150,7 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND hour = 10 AND minute > 15 AND m
 | 322W7JE       | Diana   | exit     |
 | 0NTHK55       | Kelsey  | exit     |
 +---------------+---------+----------+
+*/
 
 -- find callers, receivers, duration
 SELECT caller, people.name AS callern, receiver, people1.name AS receivern
