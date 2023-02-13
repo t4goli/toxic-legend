@@ -252,3 +252,5 @@ FROM airports
 JOIN flights on airports.id = flights.destination_airport_id
 JOIN passengers ON flights.id = passengers.flight_id JOIN people on passengers.passport_number = people.passport_number
 WHERE name = "Patrick" OR name = "Robert";
+
+-- between Diana and Bruce; Interviewed people said "him" or "he"
