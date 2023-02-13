@@ -329,3 +329,22 @@ WHERE year = 2021 AND day = 28 AND month = 7;
 +----------------+-------------+----------+
 */
 
+-- bank transactions on day of theft
+SELECT account_number, transaction_type, amount
+FROM atm_transactions
+WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = "Leggett Street";
+/*
++----------------+------------------+--------+
+| account_number | transaction_type | amount |
++----------------+------------------+--------+
+| 28500762       | withdraw         | 48     |
+| 28296815       | withdraw         | 20     |
+| 76054385       | withdraw         | 60     |
+| 49610011       | withdraw         | 50     |
+| 16153065       | withdraw         | 80     |
+| 86363979       | deposit          | 10     |
+| 25506511       | withdraw         | 20     |
+| 81061156       | withdraw         | 30     |
+| 26013199       | withdraw         | 35     |
++----------------+------------------+--------+
+*/
