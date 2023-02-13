@@ -349,3 +349,50 @@ WHERE year = 2021 AND month = 7 AND day = 28 AND atm_location = "Leggett Street"
 | 30     | withdraw         | Benista |
 +--------+------------------+---------+
 */
+
+-- check who took flights from Fiftyville on the day of theft and where to
+SELECT full_name, city, abbreviation, hour, minute, name
+FROM airports JOIN flights on airports.id = flights.destination_airport_id
+JOIN passengers ON flights.id = passengers.flight_id
+JOIN people on passengers.passport_number = people.passport_number
+WHERE flights.origin_airport_id
+    IN (SELECT id FROM airports WHERE city = "Fiftyville") AND year = 2021 AND month = 7 AND day = 28;
+/*
++-----------------------------------------+---------------+--------------+------+--------+---------+
+|                full_name                |     city      | abbreviation | hour | minute |  name   |
++-----------------------------------------+---------------+--------------+------+--------+---------+
+| Dubai International Airport             | Dubai         | DXB          | 17   | 50     | Betty   |
+| Dubai International Airport             | Dubai         | DXB          | 17   | 50     | Jose    |
+| Dubai International Airport             | Dubai         | DXB          | 17   | 50     | Carina  |
+| Dubai International Airport             | Dubai         | DXB          | 17   | 50     | Sara    |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Nicole  |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Amanda  |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Joyce   |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Jean    |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Daniel  |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Carol   |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Rebecca |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Sophia  |
+| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Brooke  |
+| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Larry   |
+| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Steven  |
+| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | John    |
+| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Pamela  |
+| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Melissa |
+| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Sharon  |
+| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Olivia  |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 17   | 20     | Pamela  |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 17   | 20     | Billy   |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 17   | 20     | Hannah  |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 17   | 20     | Grace   |
+| Dallas/Fort Worth International Airport | Dallas        | DFS          | 17   | 20     | Kathryn |
+| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Jean    |
+| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Judith  |
+| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Natalie |
+| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Olivia  |
+| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Laura   |
+| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Paul    |
+| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Sean    |
+| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Nancy   |
++-----------------------------------------+---------------+--------------+------+--------+---------+
+*/
