@@ -396,3 +396,10 @@ WHERE flights.origin_airport_id
 | LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Nancy   |
 +-----------------------------------------+---------------+--------------+------+--------+---------+
 */
+
+-- check if Robert or Patrick went to Paris
+SELECT full_name, city, abbreviation, hour, minute, name
+FROM airports
+JOIN flights on airports.id = flights.destination_airport_id
+JOIN passengers ON flights.id = passengers.flight_id JOIN people on passengers.passport_number = people.passport_number
+WHERE name = "Patrick" OR name = "Robert";
