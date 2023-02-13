@@ -309,4 +309,6 @@ SELECT * FROM people;
 +--------+-------------+----------------+-----------------+---------------+
 */
 
---
+-- Find crime scenes from that day
+SELECT * FROM crime_scene_reports;
+/*
