@@ -202,43 +202,48 @@ JOIN people on passengers.passport_number = people.passport_number
 WHERE flights.origin_airport_id
     IN (SELECT id FROM airports WHERE city = "Fiftyville") AND year = 2021 AND month = 7 AND day = 29;
 /*
-+-----------------------------------------+---------------+--------------+------+--------+---------+
-|                full_name                |     city      | abbreviation | hour | minute |  name   |
-+-----------------------------------------+---------------+--------------+------+--------+---------+
-| Dubai International Airport             | Dubai         | DXB          | 17   | 50     | Betty   |
-| Dubai International Airport             | Dubai         | DXB          | 17   | 50     | Jose    |
-| Dubai International Airport             | Dubai         | DXB          | 17   | 50     | Carina  |
-| Dubai International Airport             | Dubai         | DXB          | 17   | 50     | Sara    |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Nicole  |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Amanda  |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Joyce   |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Jean    |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Daniel  |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Carol   |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Rebecca |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 13   | 49     | Sophia  |
-| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Brooke  |
-| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Larry   |
-| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Steven  |
-| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | John    |
-| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Pamela  |
-| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Melissa |
-| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Sharon  |
-| LaGuardia Airport                       | New York City | LGA          | 20   | 16     | Olivia  |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 17   | 20     | Pamela  |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 17   | 20     | Billy   |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 17   | 20     | Hannah  |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 17   | 20     | Grace   |
-| Dallas/Fort Worth International Airport | Dallas        | DFS          | 17   | 20     | Kathryn |
-| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Jean    |
-| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Judith  |
-| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Natalie |
-| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Olivia  |
-| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Laura   |
-| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Paul    |
-| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Sean    |
-| LaGuardia Airport                       | New York City | LGA          | 16   | 16     | Nancy   |
-+-----------------------------------------+---------------+--------------+------+--------+---------+
++-------------------------------------+---------------+--------------+------+--------+-----------+
+|              full_name              |     city      | abbreviation | hour | minute |   name    |
++-------------------------------------+---------------+--------------+------+--------+-----------+
+| Logan International Airport         | Boston        | BOS          | 16   | 0      | Gloria    |
+| Logan International Airport         | Boston        | BOS          | 16   | 0      | Kristina  |
+| Logan International Airport         | Boston        | BOS          | 16   | 0      | Douglas   |
+| Logan International Airport         | Boston        | BOS          | 16   | 0      | Diana     |
+| Logan International Airport         | Boston        | BOS          | 16   | 0      | Christian |
+| Logan International Airport         | Boston        | BOS          | 16   | 0      | Michael   |
+| Logan International Airport         | Boston        | BOS          | 16   | 0      | Ethan     |
+| Logan International Airport         | Boston        | BOS          | 16   | 0      | Charles   |
+| San Francisco International Airport | San Francisco | SFO          | 12   | 15     | Dennis    |
+| San Francisco International Airport | San Francisco | SFO          | 12   | 15     | Jose      |
+| San Francisco International Airport | San Francisco | SFO          | 12   | 15     | Jennifer  |
+| San Francisco International Airport | San Francisco | SFO          | 12   | 15     | Brandon   |
+| San Francisco International Airport | San Francisco | SFO          | 12   | 15     | Matthew   |
+| San Francisco International Airport | San Francisco | SFO          | 12   | 15     | Emily     |
+| San Francisco International Airport | San Francisco | SFO          | 12   | 15     | Douglas   |
+| San Francisco International Airport | San Francisco | SFO          | 12   | 15     | Jordan    |
+| LaGuardia Airport                   | New York City | LGA          | 8    | 20     | Doris     |
+| LaGuardia Airport                   | New York City | LGA          | 8    | 20     | Sofia     |
+| LaGuardia Airport                   | New York City | LGA          | 8    | 20     | Bruce     |
+| LaGuardia Airport                   | New York City | LGA          | 8    | 20     | Edward    |
+| LaGuardia Airport                   | New York City | LGA          | 8    | 20     | Kelsey    |
+| LaGuardia Airport                   | New York City | LGA          | 8    | 20     | Taylor    |
+| LaGuardia Airport                   | New York City | LGA          | 8    | 20     | Kenny     |
+| LaGuardia Airport                   | New York City | LGA          | 8    | 20     | Luca      |
+| O'Hare International Airport        | Chicago       | ORD          | 9    | 30     | Daniel    |
+| O'Hare International Airport        | Chicago       | ORD          | 9    | 30     | Carol     |
+| O'Hare International Airport        | Chicago       | ORD          | 9    | 30     | Rebecca   |
+| O'Hare International Airport        | Chicago       | ORD          | 9    | 30     | Sophia    |
+| O'Hare International Airport        | Chicago       | ORD          | 9    | 30     | Heather   |
+| O'Hare International Airport        | Chicago       | ORD          | 9    | 30     | Marilyn   |
+| Tokyo International Airport         | Tokyo         | HND          | 15   | 20     | Richard   |
+| Tokyo International Airport         | Tokyo         | HND          | 15   | 20     | Thomas    |
+| Tokyo International Airport         | Tokyo         | HND          | 15   | 20     | Brooke    |
+| Tokyo International Airport         | Tokyo         | HND          | 15   | 20     | Larry     |
+| Tokyo International Airport         | Tokyo         | HND          | 15   | 20     | Steven    |
+| Tokyo International Airport         | Tokyo         | HND          | 15   | 20     | John      |
+| Tokyo International Airport         | Tokyo         | HND          | 15   | 20     | Pamela    |
+| Tokyo International Airport         | Tokyo         | HND          | 15   | 20     | Melissa   |
++-------------------------------------+---------------+--------------+------+--------+-----------+
 */
 
 -- check if Robert or Patrick went to Paris
