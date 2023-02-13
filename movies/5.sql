@@ -1,0 +1,1 @@
+SELECT title, year FROM movies WHERE (SELECT InStr(title, "Harry Potter") = 1) ORDER BY year ASC;
