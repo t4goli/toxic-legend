@@ -100,4 +100,9 @@ CREATE TABLE bakery_security_logs (
 );
 */
 
+-- find suspects
+SELECT * FROM people;
+/*
 
+
+--
