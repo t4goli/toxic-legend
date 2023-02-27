@@ -23,6 +23,11 @@ body {
     text-align: center;
 }
 
+.h2 {
+    text-align: center;
+    color: #fff;
+}
+
 .section {
     padding: 0.5rem 2rem 1rem 2rem;
 }
