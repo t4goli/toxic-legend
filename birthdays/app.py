@@ -33,7 +33,7 @@ def index():
         return redirect("/")
     else:
         # TODO: Display the entries in the database on index.html
-        
-        return render_template("index.html")
+        birthdays = db.execute("SELECT * FROM registrants")
+        return render_template("index.html", birthdays=birthdays)
 
 
