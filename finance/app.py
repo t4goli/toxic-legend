@@ -116,7 +116,7 @@ def register():
     """Register user"""
     if request.method == "POST":
         username = request.form.get("username")
-        if (username in db.execute("SELECT * FROM users")):
+        if (username in db.execute("SELECT username FROM users")):
             return apology("username is taken", 403)
         elif not (username):
             return apology("must submit username", 403)
@@ -126,7 +126,7 @@ def register():
             return apology("must submit password/confirmation", 403)
         if password != confirmation:
             return apology("passwords do not match", 403)
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?, ?)", username, generate_password_hash(password))
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
         return redirect("/")
     else:
         return render_template("register.html")
