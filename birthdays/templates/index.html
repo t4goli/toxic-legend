@@ -16,9 +16,9 @@
                 <h2>Add a Birthday</h2>
                 <!-- TODO: Create a form for users to submit a name, a month, and a day -->
                 <form action="/" method="POST">
-                    <input autocomplete="off" autofocus name="Name" placeholder="Name" type="text">
-                    <input autocomplete="off" autofocus name="Month" placeholder="Month" type="number">
-                    <input autocomplete="off" autofocus name="Day" placeholder="Day" type="number">
+                    <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+                    <input autocomplete="off" autofocus name="month" placeholder="Month" type="number">
+                    <input autocomplete="off" autofocus name="day" placeholder="Day" type="number">
                     <button type="submit">Add</button>
                 </form>
             </div>
@@ -35,6 +35,7 @@
                     </thead>
                     <tbody>
                         <!-- TODO: Loop through the database entries to display them in this table -->
+                        {% for birthday in birthdays %}
                     </tbody>
                 </table>
             </div>
