@@ -116,7 +116,7 @@ def register():
     """Register user"""
     if request.method == "POST":
         username = request.form.get("username")
-        if (username in db):
+        if (username in db.execute("SELECT * FROM users")):
             return apology("username is taken", 403)
         elif not (username):
             return apology("must submit username", 403)
