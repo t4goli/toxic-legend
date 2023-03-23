@@ -127,7 +127,9 @@ def register():
         if password != confirmation:
             return apology("passwords do not match", 403)
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?, ?)", username, generate_password_hash(password))
-        return render_template("register.html", users=users)
+        return redirect("/")
+    else:
+        return render_template("register.html")
 
 
 @app.route("/sell", methods=["GET", "POST"])
