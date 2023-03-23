@@ -126,6 +126,7 @@ def register():
             return apology("must submit password/confirmation", 403)
         if password != confirmation:
             return apology("passwords do not match", 403)
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?, ?)", username, generate_password_hash(password))
         return redirect("/")
     return apology("TODO")
 
