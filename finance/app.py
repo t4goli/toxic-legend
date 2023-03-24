@@ -53,8 +53,9 @@ def index():
     tv = {}
     gt = ucc
     for stock in stocks:
-        tv["stock"]
-    return render_template("index.html", ucc=ucc, )
+        tv["stock"] = nos["stock"] * pps["stock"]
+        gt = gt + tv["stock"]
+    return render_template("index.html", ucc=ucc, stocks=stocks, nos=nos, pps=pps, tv=tv, gt=gt)
 
 
 @app.route("/buy", methods=["GET", "POST"])

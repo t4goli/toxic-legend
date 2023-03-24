@@ -14,8 +14,8 @@
         </thead>
         <tbody>
             <tr>
-                    <td>name</td>
-                    <td>day</td>
+                    <td>{{ ucc }}</td>
+                    <td>{{ gt }}</td>
             </tr>
         </tbody>
     </table>
@@ -29,9 +29,9 @@
             </tr>
         </thead>
         <tbody>
-            {% for birthday in birthdays %}
+            {% for stock in stocks %}
                 <tr>
-                        <td>{{ birthday.name }}</td>
+                        <td>{{  }}</td>
                         <td>{{ birthday.month }} / {{birthday.day }}</td>
                 </tr>
             {% endfor %}
