@@ -111,7 +111,7 @@ def quote():
     if request.method == "POST":
         symbol = request.form.get("symbol")
         money = lookup(symbol)
-        if money == NONE:
+        if money == 'NoneType':
             return apology("not a real company", 403)
         return render_template("quoted.html", money=money["price"])
     else:
