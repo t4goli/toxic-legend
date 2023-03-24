@@ -42,6 +42,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
+    u = "trgoli44"
     ucc = db.execute("SELECT cash FROM users WHERE username = ?", u)
 
     return render_template("index.html", ucc=ucc)
@@ -51,6 +52,7 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
+    u = "trgoli44"
     if request.method == "POST":
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
@@ -61,8 +63,11 @@ def buy():
         if ((not symbol) or (int(shares) < 0)):
             return apology("gurlll", 403)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
-        if (shares*money > u):
+        if (int(shares)*money > cash):
             return apology("You're Poor", 403)
+        else:
+            cash = cash - (int(shares)*money)
+        db.execute("UPDATE users SET cash = ? WHERE user = ?", cash, u)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
         return redirect("/")
     else:
