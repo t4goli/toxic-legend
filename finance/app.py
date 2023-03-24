@@ -44,10 +44,12 @@ def index():
     """Show portfolio of stocks"""
     ucc = db.execute("SELECT cash FROM users WHERE username = ?", session.get("user_id"))
     stocks = db.execute("SELECT company FROM purchases WHERE username = ?", u)
-    numos = db.execute
-    dict = {}
+    nos = {}
+    pps = {}
     for stock in stocks:
-        dict["stock"] = db.execute("SELECT )
+        nos["stock"] = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND company = ?", u, stock)
+    for stock in stocks:
+        pps["stock"] = lookup("SELECT symbol FROM purchases WHERE username = ? AND company = ?", u, stock)["price"]
     return render_template("index.html", ucc=ucc, )
 
 
