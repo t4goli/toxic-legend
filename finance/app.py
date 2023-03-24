@@ -48,7 +48,7 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        symbol = request.form.get("symbol") 
+        symbol = request.form.get("symbol")
         shares = request.form.get("shares")
         try:
             money = lookup(symbol)["price"]
@@ -56,6 +56,7 @@ def buy():
             return apology("symbol does not exist", 403)
         if not symbol or shares < 0:
             return apology("gurlll", 403)
+        cash = db.execute()
         return redirect("/")
     return apology("TODO")
 
