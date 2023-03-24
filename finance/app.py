@@ -58,11 +58,13 @@ def buy():
             return apology("gurlll", 403)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", session["name"])
         db.execute(CREATE TABLE purchases (
-	        username INTEGER PRIMARY KEY,
-	        first_name TEXT NOT NULL,
-	        last_name TEXT NOT NULL,
-	        email TEXT NOT NULL UNIQUE,
-	        phone TEXT NOT NULL UNIQUE
+	        username TEXT FOREIGN KEY,
+	        month TEXT NOT NULL,
+	        date TEXT NOT NULL,
+	        year TEXT NOT NULL UNIQUE,
+	        company TEXT NOT NULL UNIQUE,
+            number of shares TEXT NOT NULL UNIQUE,
+            years TEXT NOT NULL UNIQUE
             ))
         return redirect("/")
     return apology("TODO")
