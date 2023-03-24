@@ -45,6 +45,9 @@ def index():
     ucc = db.execute("SELECT cash FROM users WHERE username = ?", session.get("user_id"))
     stocks = db.execute("SELECT company FROM purchases WHERE username = ?", u)
     numos = db.execute
+    dict = {}
+    for stock in stocks:
+        dict["stock"] = db.execute("SELECT )
     return render_template("index.html", ucc=ucc, )
 
 
