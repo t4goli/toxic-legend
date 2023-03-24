@@ -56,7 +56,7 @@ def buy():
             return apology("symbol does not exist", 403)
         if not symbol or shares < 0:
             return apology("gurlll", 403)
-        cash = db.execute(SELECT )
+        cash = db.execute(SELECT cash FROM users WHERE username = )
         return redirect("/")
     return apology("TODO")
 
