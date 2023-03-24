@@ -57,14 +57,7 @@ def buy():
         if not symbol or shares < 0:
             return apology("gurlll", 403)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", session["name"])
-        db.execute(CREATE TABLE purchases (
-	        username TEXT NOT NULL UNIQUE,
-	        month INTEGER NOT UNIQUE,
-	        date INTEGER NOT UNIQUE,
-	        year INTEGER NOT UNIQUE,
-	        company TEXT NOT UNIQUE,
-            number of shares INTEGER NOT UNIQUE
-            ))
+        db.execute("INSERT INTO purchases (username, month, day, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", session["name"], )
         return redirect("/")
     return apology("TODO")
 
