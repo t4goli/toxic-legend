@@ -60,7 +60,9 @@ def buy():
             return apology("symbol does not exist", 403)
         if ((not symbol) or (int(shares) < 0)):
             return apology("gurlll", 403)
-        cash = db.execute("SELECT cash FROM users WHERE username = ?", session.get("user_id"))
+        cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
+        if (shares*money > u):
+            return apology("You're Poor", 403)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
         return redirect("/")
     else:
