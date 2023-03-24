@@ -50,6 +50,10 @@ def index():
         nos["stock"] = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND company = ?", u, stock)
     for stock in stocks:
         pps["stock"] = lookup("SELECT symbol FROM purchases WHERE username = ? AND company = ?", u, stock)["price"]
+    tv = {}
+    gt = ucc
+    for stock in stocks:
+        tv["stock"]
     return render_template("index.html", ucc=ucc, )
 
 
