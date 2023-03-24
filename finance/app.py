@@ -1,6 +1,7 @@
 import os
 
 from cs50 import SQL
+from datetime import date
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
@@ -57,9 +58,10 @@ def buy():
         if not symbol or shares < 0:
             return apology("gurlll", 403)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", session["name"])
-        db.execute("INSERT INTO purchases (username, month, day, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", session["name"], )
+        db.execute("INSERT INTO purchases (username, month, day, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", session["name"], date.today().month, date.today().day, date.today().year, symbol, shares)
         return redirect("/")
-    return apology("TODO")
+    else:
+        return render_template("buy.html")
 
 
 @app.route("/history")
