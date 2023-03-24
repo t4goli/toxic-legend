@@ -42,7 +42,9 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return apology("todo")
+    ucc = db.execute("SELECT cash FROM users WHERE username = ?", u)
+
+    return render_template("index.html", ucc=ucc)
 
 
 @app.route("/buy", methods=["GET", "POST"])
