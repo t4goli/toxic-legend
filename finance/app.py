@@ -48,7 +48,15 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        
+        symbol = request.form.get("symbol")
+        shares = request.form.get("shares")
+        try:
+            money = lookup(symbol)["price"]
+        except (TypeError):
+            return apology("symbol does not exist", 403)
+        if not symbol or shares < 0:
+            return apology("gurlll", 403)
+        return redirect("/")
     return apology("TODO")
 
 
@@ -116,7 +124,7 @@ def quote():
         try:
             return render_template("quoted.html", money=money["price"])
         except (TypeError):
-            return apology("not a real company", 403)
+            return apology("symbol does not exist", 403)
     else:
         return render_template("quote.html")
 
