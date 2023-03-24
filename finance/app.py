@@ -27,6 +27,7 @@ db = SQL("sqlite:///finance.db")
 if not os.environ.get("API_KEY"):
     raise RuntimeError("API_KEY not set")
 
+u = "j"
 
 @app.after_request
 def after_request(response):
@@ -58,7 +59,7 @@ def buy():
         if ((not symbol) or (int(shares) < 0)):
             return apology("gurlll", 403)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", session.get("user_id"))
-        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", session.get("user_id"), date.today().month, date.today().day, date.today().year, symbol, shares)
+        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, symbol, shares)
         return redirect("/")
     else:
         return render_template("buy.html")
@@ -91,7 +92,7 @@ def login():
 
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
-
+        u = request.form.get("username")
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
             return apology("invalid username and/or password", 403)
