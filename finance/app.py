@@ -63,7 +63,7 @@ def buy():
 	        date INTEGER NOT UNIQUE,
 	        year INTEGER NOT UNIQUE,
 	        company TEXT NOT UNIQUE,
-            number of shares INTEGER NOT UNIQUE,
+            number of shares INTEGER NOT UNIQUE
             ))
         return redirect("/")
     return apology("TODO")
