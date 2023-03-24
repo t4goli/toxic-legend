@@ -8,8 +8,8 @@
     <table>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Birthday</th>
+                <th>Cash Balance</th>
+                <th>Grand Total</th>
             </tr>
         </thead>
         <tbody>
@@ -21,4 +21,23 @@
             {% endfor %}
         </tbody>
     </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Stocks</th>
+                <th># of Shares</th>
+                <th>Current Price of Share</th>
+                <th>Total Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for birthday in birthdays %}
+                <tr>
+                        <td>{{ birthday.name }}</td>
+                        <td>{{ birthday.month }} / {{birthday.day }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 {% endblock %}
