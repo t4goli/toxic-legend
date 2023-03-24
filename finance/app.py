@@ -57,6 +57,13 @@ def buy():
         if not symbol or shares < 0:
             return apology("gurlll", 403)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", session["name"])
+        db.execute(CREATE TABLE contacts (
+	        contact_id INTEGER PRIMARY KEY,
+	        first_name TEXT NOT NULL,
+	        last_name TEXT NOT NULL,
+	        email TEXT NOT NULL UNIQUE,
+	        phone TEXT NOT NULL UNIQUE
+            ))
         return redirect("/")
     return apology("TODO")
 
