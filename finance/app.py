@@ -1,3 +1,4 @@
+global u
 import os
 
 from cs50 import SQL
@@ -41,7 +42,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    ucc = db.execute("SELECT cash FROM users WHERE username = ?", u)
+    ucc = db.execute("SELECT cash FROM users WHERE username = ?", session.get("user_id"))
     stocks = db.execute("SELECT company FROM purchases WHERE username = ?", u)
     numos = db.execute
     return render_template("index.html", )
