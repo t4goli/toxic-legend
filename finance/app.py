@@ -111,9 +111,8 @@ def quote():
     if request.method == "GET":
         return render_template("quote.html")
     else:
-        
-        return render_template("quoted.html")
-    return apology("TODO")
+        symbol = request.form.get("symbol")
+        return render_template("quoted.html", symbol=lookup(symbol))
 
 
 @app.route("/register", methods=["GET", "POST"])
