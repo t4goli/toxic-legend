@@ -55,10 +55,10 @@ def buy():
             money = lookup(symbol)["price"]
         except (TypeError):
             return apology("symbol does not exist", 403)
-        if ((not symbol) or (shares < 0)):
+        if ((not symbol) or (int(shares) < 0)):
             return apology("gurlll", 403)
-        cash = db.execute("SELECT cash FROM users WHERE username = ?", session["name"])
-        db.execute("INSERT INTO purchases (username, month, day, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", session["name"], date.today().month, date.today().day, date.today().year, symbol, shares)
+        cash = db.execute("SELECT cash FROM users WHERE username = ?", session.get("user_id"))
+        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", session.get("user_id"), date.today().month, date.today().day, date.today().year, symbol, shares)
         return redirect("/")
     else:
         return render_template("buy.html")
