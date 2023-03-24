@@ -63,7 +63,7 @@ def buy():
         if ((not symbol) or (int(shares) < 0)):
             return apology("gurlll", 403)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
-        if (int(shares)*money > cash):
+        if (int(shares)*money > cash[u]):
             return apology("You're Poor", 403)
         else:
             cash = cash - (int(shares)*money)
