@@ -144,12 +144,14 @@ def logout():
 
 @app.route("/addcash", methods=["GET", "POST"])
 def addcash():
+    u = new
     if request.method == "POST":
         cash = request.form.get("cash")
-        cc = db.execute("SELECT cash FROM users WHERE username = ?", u)
+        cc = db.execute("SELECT cash FROM users WHERE username = ?", new)
         if (not cash) or (int(cash) < 0):
             return apology("GURL", 403)
-        db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
+        nc = cash + int(cc[0]["cash"])
+        db.execute("UPDATE users SET cash = ? WHERE username = ?", nc, u)
         return redirect("/")
     else:
         return render_template("addcash.html")
