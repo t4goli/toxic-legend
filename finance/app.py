@@ -51,7 +51,7 @@ def index():
     for stock in stocks:
         p1 = stocks[i]["company"]
         nosh = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND company = ?", u, p1)
-        nosh1.append(int(nosh))
+        nosh1.append(int(nosh[i]))
         i = i + 1
 
     return render_template("index.html", ucc=ucc[0]["cash"], nosh1=nosh1, stocks=stocks)
