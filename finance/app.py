@@ -166,7 +166,7 @@ def quote():
         symbol = request.form.get("symbol")
         money = lookup(symbol)
         try:
-            return render_template("quoted.html", round(money=money["price"], 2))
+            return render_template("quoted.html", money=round(money["price"], 2))
         except (TypeError):
             return apology("symbol does not exist", 400)
     else:
