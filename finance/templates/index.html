@@ -30,10 +30,12 @@
         </thead>
         <tbody>
             {% for stock in stocks %}
+                i = 0
                 <tr>
                         <td>{{ stock.company }}</td>
-                        <td>{{ num.stock }}</td>
+                        <td>{{ num[i] }}</td>
                 </tr>
+                i = i + 1
             {% endfor %}
         </tbody>
     </table>
