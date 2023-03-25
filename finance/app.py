@@ -83,6 +83,7 @@ def buy():
             cash = cash[0]["cash"] - (int(shares)*money)
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
+        db.execute("INSERT INTO history (username, month, bos, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?, ?)", u, date.today().month, "bought", date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
         return redirect("/")
     else:
         return render_template("buy.html")
