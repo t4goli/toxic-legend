@@ -10,18 +10,18 @@
                 <th>Bought/Sold</th>
                 <th>Symbol</th>
                 <th>Purchase/Sale Price</th>
-                <th>Total Value</th>
+                <th># of shares</th>
+                <th>Date</th>
+                <th>Time</th>
             </tr>
         </thead>
         <tbody>
-            {% for stock in stocks %}
                 <tr>
                         <td>{{ stock.company }}</td>
                         <td>{{ num[stock.company] }}</td>
                         <td>{{ cp[stock.company] }}</td>
                         <td>{{ tv[stock.company] }}</td>
                 </tr>
-            {% endfor %}
         </tbody>
     </table>
 
