@@ -74,7 +74,7 @@ def buy():
             money = lookup(symbol)["price"]
         except (TypeError):
             return apology("symbol does not exist", 400)
-        if ((not symbol) or (not shares.isdigit():) or (float(shares) < 0)):
+        if ((not symbol) or (not shares.isdigit()) or (float(shares) < 0)):
             return apology("gurlll", 400)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
         if (float(shares)*money > cash[0]["cash"]):
