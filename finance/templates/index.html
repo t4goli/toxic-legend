@@ -14,8 +14,8 @@
         </thead>
         <tbody>
             <tr>
-                    <td>{{ ucc }}</td>
-                    <td>{{ gt }}</td>
+                    <td>${{ ucc }}</td>
+                    <td>${{ gt }}</td>
             </tr>
         </tbody>
     </table>
@@ -33,8 +33,8 @@
                 <tr>
                         <td>{{ stock.company }}</td>
                         <td>{{ num[stock.company] }}</td>
-                        <td>{{ cp[stock.company] }}</td>
-                        <td>{{ tv[stock.company] }}</td>
+                        <td>${{ cp[stock.company] }}</td>
+                        <td>${{ tv[stock.company] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
