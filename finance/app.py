@@ -44,8 +44,9 @@ def index():
     """Show portfolio of stocks"""
     u = "trgoli44"
     ucc = db.execute("SELECT cash FROM users WHERE username = ?", u)
+    uccb = ucc
 
-    return render_template("index.html", ucc=ucc{})
+    return render_template("index.html", ucc=ucc{0})
 
 
 @app.route("/buy", methods=["GET", "POST"])
