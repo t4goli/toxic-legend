@@ -55,7 +55,7 @@ def index():
         nosh = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND company = ?", u, p1)
         num[p1] = (int(nosh[0]["SUM(nos)"]))
         cp[p1] = lookup(p1)["price"]
-        tv[p1] = num[p1] * cp[p1]
+        tv[p1] = round(num[p1] * cp[p1], 2)
         gt = gt + tv[p1]
         i = i + 1
 
