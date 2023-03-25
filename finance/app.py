@@ -44,7 +44,10 @@ def index():
     """Show portfolio of stocks"""
     u = "trgoli44"
     ucc = db.execute("SELECT cash FROM users WHERE username = ?", u)
-    stocks = db.execute("SELECT )
+    all = db.execute("SELECT * FROM purchases WHERE username = ?", u)
+    stocks = db.execute("SELECT companies FROM purchases WHERE username = ?", u)
+    for i in stocks:
+        
 
     return render_template("index.html", ucc=ucc[0]["cash"], )
 
