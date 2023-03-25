@@ -46,7 +46,7 @@ def index():
     ucc = db.execute("SELECT cash FROM users WHERE username = ?", u)
     stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
     nos = []
-    i = 1
+    i = 0
     for stock in stocks:
         p1 = stocks[i]["company"]
         print(p1)
