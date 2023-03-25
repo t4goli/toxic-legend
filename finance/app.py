@@ -56,10 +56,10 @@ def index():
         num[p1] = (int(nosh[0]["SUM(nos)"]))
         cp[p1] = lookup(p1)["price"]
         tv[p1] = round(num[p1] * cp[p1],2)
-        gt = gt + tv[p1]
+        gt = round(gt + tv[p1], 2)
         i = i + 1
 
-    return render_template("index.html", ucc=round(ucc[0]["cash"],2), num=num, stocks=stocks, cp=cp, tv=tv, 2, gt=round(gt, 2))
+    return render_template("index.html", ucc=round(ucc[0]["cash"],2), num=num, stocks=stocks, cp=cp, tv=tv, 2, gt=gt)
 
 
 @app.route("/buy", methods=["GET", "POST"])
