@@ -146,7 +146,10 @@ def logout():
 
 @app.route("/addcash")
 def addcash():
-    
+    if request.method == "POST":
+        cash = request.form.get("cash")
+        db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
+
 
 
 @app.route("/quote", methods=["GET", "POST"])
