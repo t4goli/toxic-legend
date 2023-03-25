@@ -196,7 +196,7 @@ def sell():
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
         cash = cash + shares*money
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
-        db.execute("UPDATE purchases SET )
+        db.execute("UPDATE purchases SET nos WHERE company = ? AND username = ?", symbol, u)
         return redirect("/")
     else:
         return render_template("buy.html"
