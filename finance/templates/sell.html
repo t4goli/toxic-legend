@@ -6,7 +6,8 @@
 
 {% block main %}
     <form action="/sell" method="POST">
-        <select autocomplete="off" autofocus name="symbol" placeholder="symbol" type="select">
+        <select autocomplete="off" autofocus name="symbol" placeholder="symbol">
+
         {% for stock in stocks %}
                 <option value={{ stock.company }}> {{ stock.company }}</option>
         {% endfor %}
