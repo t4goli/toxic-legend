@@ -59,7 +59,7 @@ def index():
         gt = gt + tv[p1]
         i = i + 1
 
-    return render_template("index.html", ucc=ucc[0]["cash"], num=num, stocks=stocks, cp=cp, tv=tv, gt=gt)
+    return render_template("index.html", ucc=ucc[0]["cash"], num=num, stocks=stocks, cp=cp, tv=tv, gt=round(gt, 2))
 
 
 @app.route("/buy", methods=["GET", "POST"])
