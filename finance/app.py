@@ -43,7 +43,6 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    u = "trgoli44"
     ucc = db.execute("SELECT cash FROM users WHERE username = ?", u)
     stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
     i = 0
@@ -67,7 +66,6 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-    u = "trgoli44"
     if request.method == "POST":
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
@@ -144,10 +142,11 @@ def logout():
     # Redirect user to login form
     return redirect("/")
 
-@app.route("/addcash")
+@app.route("/addcash", methods=["GET", "POST"])
 def addcash():
     if request.method == "POST":
         cash = request.form.get("cash")
+        cc = db.execute("SELECT cash FROM users WHERE username = ?", u)
         if (not cash) or (int(cash) < 0):
             return apology("GURL", 403)
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
@@ -196,7 +195,6 @@ def register():
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
-    u = "trgoli44"
     if request.method == "POST":
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
