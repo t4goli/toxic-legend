@@ -72,12 +72,12 @@ def buy():
         try:
             money = lookup(symbol)["price"]
         except (TypeError):
-            return apology("symbol does not exist", 403)
+            return apology("symbol does not exist", 400)
         if ((not symbol) or (int(shares) < 0)):
-            return apology("gurlll", 403)
+            return apology("gurlll", 400)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
         if (int(shares)*money > cash[0]["cash"]):
-            return apology("You're Poor", 403)
+            return apology("You're Poor", 400)
         else:
             cash = cash[0]["cash"] - (int(shares)*money)
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
@@ -168,7 +168,7 @@ def quote():
         try:
             return render_template("quoted.html", money=money["price"])
         except (TypeError):
-            return apology("symbol does not exist", 403)
+            return apology("symbol does not exist", 400)
     else:
         return render_template("quote.html")
 
