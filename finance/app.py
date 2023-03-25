@@ -181,8 +181,8 @@ def register():
         if not username:
             return apology("must submit username", 400)
         raws = db.execute("SELECT * FROM users WHERE username = ?", username)
-            if len(raws) == 1:
-                return apology("Sorry, username already exists", 400)
+        if len(raws) == 1:
+            return apology("Sorry, username already exists", 400)
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
         if ((not password) or (not confirmation)):
