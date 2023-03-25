@@ -44,11 +44,12 @@ def index():
     """Show portfolio of stocks"""
     u = "trgoli44"
     ucc = db.execute("SELECT cash FROM users WHERE username = ?", u)
-    all = db.execute("SELECT * FROM purchases WHERE username = ?", u)
     stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
+    for stock in stocks:
+        nos[stock] = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND company = ?", u, stock["company"])
 
 
-    return render_template("index.html", ucc=ucc[0]["cash"], all=all, stocks=stocks)
+    return render_template("index.html", ucc=ucc[0]["cash"], nos=nos, stocks=stocks)
 
 
 @app.route("/buy", methods=["GET", "POST"])
