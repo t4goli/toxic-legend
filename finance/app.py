@@ -2,13 +2,21 @@ global u
 import os
 import math
 
-from cs50 import SQL
-from datetime import date
-from flask import Flask, flash, redirect, render_template, request, session
-from flask_session import Session
-from datetime import datetime
-from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
+
+from tempfile import mkdtemp
+
+from datetime import datetime
+
+from flask_session import Session
+
+from datetime import date
+
+from cs50 import SQL
+
+from flask import Flask, flash, redirect, render_template, request, session
+
+from flask_session import Sessions
 
 from helpers import apology, login_required, lookup, usd
 
@@ -83,9 +91,9 @@ def buy():
             cash = cash[0]["cash"] - (float(shares)*money)
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)",
-                u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
+                   u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
         db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-                u, date.today().month, "bought", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
+                   u, date.today().month, "bought", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
         return redirect("/")
     else:
         return render_template("buy.html")
@@ -215,9 +223,9 @@ def sell():
         cash = cash[0]["cash"] + float(shares)*money
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)",
-            u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], (0-float(shares)))
+                   u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], (0-float(shares)))
         db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-            u, date.today().month, "sold", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
+                   u, date.today().month, "sold", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
         return redirect("/")
     else:
         stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
