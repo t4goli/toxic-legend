@@ -191,10 +191,10 @@ def sell():
         except (TypeError):
             return apology("symbol does not exist", 403)
         nosh = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND company = ?", u, symbol)
-        if ((not symbol) or (int(shares) < 0) or (int(nosh[0]["SUM(nos)]) < int(shares))):
+        if ((not symbol) or (int(shares) < 0) or (int(nosh[0]["SUM(nos)"]) < int(shares))):
             return apology("gurlll", 403)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
-        cash = cash + shares*money
+        cash = cash + int(shares)*money
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
         db.execute("UPDATE purchases SET nos WHERE company = ? AND username = ?", symbol, u)
         return redirect("/")
