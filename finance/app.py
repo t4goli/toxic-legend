@@ -47,13 +47,19 @@ def index():
     stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
     i = 0
     num = {}
+    cp = {}
+    tv = {}
+    gt = ucc[0]["cash"]
     for stock in stocks:
         p1 = stocks[i]["company"]
         nosh = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND company = ?", u, p1)
         num[p1] = (int(nosh[0]["SUM(nos)"]))
+        cp[p1] = lookup(p1)["price"]
+        tv[p1] = num[p1] * cp[p1]
+        gt = gt + tv[p1]
         i = i + 1
 
-    return render_template("index.html", ucc=ucc[0]["cash"], num=num, stocks=stocks)
+    return render_template("index.html", ucc=ucc[0]["cash"], num=num, stocks=stocks, cp=cp, tv=tv, gt=gt)
 
 
 @app.route("/buy", methods=["GET", "POST"])
