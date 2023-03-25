@@ -203,3 +203,7 @@ def sell():
     else:
         stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
         return render_template("sell.html", stocks=stocks)
+
+    CREATE TABLE history (username TEXT NOT NULL, month INTEGER NOT NULL, bos TEXT NOT NULL, date INTEGER,
+   ...>    year INTEGER,
+   ...>     company TEXT, nos INTEGER, price INTEGER);
