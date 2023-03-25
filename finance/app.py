@@ -144,6 +144,10 @@ def logout():
     # Redirect user to login form
     return redirect("/")
 
+@app.route("/addcash")
+def addcash():
+    
+
 
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
