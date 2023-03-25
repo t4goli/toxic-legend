@@ -196,9 +196,7 @@ def sell():
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
         cash = cash[0]["cash"] + int(shares)*money
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
-        nn = int(nosh[0]["SUM(nos)"]) - int(shares)
-        db.execute("UPDATE purchases SET nos = ? WHERE company = ? AND username = ?", nn, symbol, u)
-        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], (0-int(shares))
+        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], (0-int(shares)))
         return redirect("/")
     else:
         stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
