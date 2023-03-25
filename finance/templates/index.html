@@ -32,11 +32,7 @@
             {% for stock in stocks %}
                 <tr>
                         <td>{{ stock.company }}</td>
-                </tr>
-            {% endfor %}
-            {% for x in num %}
-                <tr>
-                        <td>{{ x }}</td>
+                        <td>{{ num[stock.company] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
