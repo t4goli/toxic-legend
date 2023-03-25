@@ -190,13 +190,13 @@ def sell():
             money = lookup(symbol)["price"]
         except (TypeError):
             return apology("symbol does not exist", 403)
-        nosh = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND company = ?", u, symbol)
+        nosh = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND WHERE company = ?", u, symbol)
         if ((not symbol) or (int(shares) < 0) or (int(nosh[0]["SUM(nos)"]) < int(shares))):
             return apology("gurlll", 403)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
-        cash = cash + int(shares)*money
+        cash = cash[0]["cash"] + int(shares)*money
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
-        db.execute("UPDATE purchases SET nos WHERE company = ? AND username = ?", symbol, u)
+        db.execute("UPDATE purchases SET nos WHERE company = ? AND WHERE username = ?", symbol, u)
         return redirect("/")
     else:
         stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
