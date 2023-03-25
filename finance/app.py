@@ -3,21 +3,12 @@ import os
 import math
 
 from werkzeug.security import check_password_hash, generate_password_hash
-
 from tempfile import mkdtemp
-
 from datetime import datetime
-
-from flask_session import Session
-
-from datetime import date
-
 from cs50 import SQL
-
+from datetime import date
 from flask import Flask, flash, redirect, render_template, request, session
-
-from flask_session import Sessions
-
+from flask_session import Session
 from helpers import apology, login_required, lookup, usd
 
 # Configure application
