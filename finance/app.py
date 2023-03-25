@@ -83,7 +83,7 @@ def buy():
             cash = cash[0]["cash"] - (float(shares)*money)
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)",
-                    u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
+                u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
         db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
                     u, date.today().month, "bought", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
         return redirect("/")
@@ -215,9 +215,9 @@ def sell():
         cash = cash[0]["cash"] + float(shares)*money
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)",
-                    u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], (0-float(shares)))
+                u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], (0-float(shares)))
         db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
-                    u, date.today().month, "sold", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
+                u, date.today().month, "sold", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
         return redirect("/")
     else:
         stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
