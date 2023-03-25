@@ -33,8 +33,8 @@
                 <tr>
                         <td>{{ stock.company }}</td>
                         <td>{{ num[stock.company] }}</td>
-                        <td>${{ cp[stock.company] }}</td>
-                        <td>${{ tv[stock.company] }}</td>
+                        <td>${{ cp[stock.company] | usd }}</td>
+                        <td>${{ tv[stock.company] | usd }}</td>
                 </tr>
             {% endfor %}
         </tbody>

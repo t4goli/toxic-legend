@@ -73,13 +73,13 @@ def buy():
             money = lookup(symbol)["price"]
         except (TypeError):
             return apology("symbol does not exist", 400)
-        if ((not symbol) or (int(shares) < 0)):
+        if ((not symbol) or (float(shares) < 0)):
             return apology("gurlll", 400)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
         if (int(shares)*money > cash[0]["cash"]):
             return apology("You're Poor", 400)
         else:
-            cash = cash[0]["cash"] - (int(shares)*money)
+            cash = cash[0]["cash"] - (float(shares)*money)
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
         db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", u, date.today().month, "bought", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
@@ -148,9 +148,9 @@ def addcash():
     if request.method == "POST":
         cash = request.form.get("cash")
         cc = db.execute("SELECT cash FROM users WHERE username = ?", u)
-        if (not cash) or (int(cash) < 0):
+        if (not cash) or (float(cash) < 0):
             return apology("GURL", 403)
-        nc = int(cash) + int(cc[0]["cash"])
+        nc = float(cash) + float(cc[0]["cash"])
         db.execute("UPDATE users SET cash = ? WHERE username = ?", nc, u)
         return redirect("/")
     else:
@@ -206,12 +206,12 @@ def sell():
         except (TypeError):
             return apology("symbol does not exist", 400)
         nosh = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND company = ?", u, symbol)
-        if ((not symbol) or (int(shares) < 0) or (int(nosh[0]["SUM(nos)"]) < int(shares))):
+        if ((not symbol) or (float(shares) < 0) or (float(nosh[0]["SUM(nos)"]) < float(shares))):
             return apology("gurlll", 400)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
-        cash = cash[0]["cash"] + int(shares)*money
+        cash = cash[0]["cash"] + float(shares)*money
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
-        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], (0-int(shares)))
+        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], (0-float(shares)))
         db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", u, date.today().month, "sold", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
         return redirect("/")
     else:
