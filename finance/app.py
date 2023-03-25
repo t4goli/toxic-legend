@@ -179,15 +179,15 @@ def register():
     if request.method == "POST":
         username = request.form.get("username")
         if (username in db.execute("SELECT username FROM users")):
-            return apology("username is taken", 403)
+            return apology("username is taken", 400)
         elif not (username):
-            return apology("must submit username", 403)
+            return apology("must submit username", 400)
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
         if ((not password) or (not confirmation)):
-            return apology("must submit password/confirmation", 403)
+            return apology("must submit password/confirmation", 400)
         if password != confirmation:
-            return apology("passwords do not match", 403)
+            return apology("passwords do not match", 400)
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
         return redirect("/")
     else:
@@ -203,10 +203,10 @@ def sell():
         try:
             money = lookup(symbol)["price"]
         except (TypeError):
-            return apology("symbol does not exist", 403)
+            return apology("symbol does not exist", 400)
         nosh = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND company = ?", u, symbol)
         if ((not symbol) or (int(shares) < 0) or (int(nosh[0]["SUM(nos)"]) < int(shares))):
-            return apology("gurlll", 403)
+            return apology("gurlll", 400)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
         cash = cash[0]["cash"] + int(shares)*money
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
