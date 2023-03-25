@@ -180,7 +180,7 @@ def register():
         username = request.form.get("username")
         if not username:
             return apology("must submit username", 400)
-        elif (username in db.execute("SELECT username FROM users")):
+        if (username in db.execute("SELECT username FROM users")):
             return apology("username is taken", 400)
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
