@@ -82,7 +82,7 @@ def buy():
             cash = cash[0]["cash"] - (int(shares)*money)
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
-        db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", u, date.today().month, "bought", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
+        db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", u, date.today().month, "bought", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, int(money))
         return redirect("/")
     else:
         return render_template("buy.html")
@@ -92,7 +92,8 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    return render_template("history.html")
+    history = db.execute("SELECT * FROM history WHERE username = ?", u)
+    return render_template("history.html", history=history)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -210,7 +211,7 @@ def sell():
         cash = cash[0]["cash"] + int(shares)*money
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], (0-int(shares)))
-        db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", u, date.today().month, "sold", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
+        db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", u, date.today().month, "sold", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, int(money))
         return redirect("/")
     else:
         stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
