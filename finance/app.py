@@ -199,4 +199,5 @@ def sell():
         db.execute("UPDATE purchases SET nos WHERE company = ? AND username = ?", symbol, u)
         return redirect("/")
     else:
-        return render_template("sell.html")
+        stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
+        return render_template("sell.html", stocks=stocks)

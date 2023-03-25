@@ -6,7 +6,10 @@
 
 {% block main %}
     <form action="/sell" method="POST">
-        <input autocomplete="off" autofocus name="symbol" placeholder="symbol" type="select">
+        <select autocomplete="off" autofocus name="symbol" placeholder="symbol" type="select">
+        {% for stock in stocks %}
+                <option value={{ stock.company }}> {{ stock.company }}</option>
+        {% endfor %}
         <input autocomplete="off" autofocus name="shares" placeholder="# of shares" type="number">
         <button type="submit">Submit</button>
     </form>
