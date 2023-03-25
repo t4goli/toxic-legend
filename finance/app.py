@@ -198,12 +198,8 @@ def sell():
         cash = cash[0]["cash"] + int(shares)*money
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], (0-int(shares)))
-        db.execute("INSERT INTO history (username, month, bos, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?, ?)", u, date.today().month, "sold", date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
+        db.execute("INSERT INTO history (username, month, bos, date, year, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", u, date.today().month, "sold", date.today().day, date.today().year, lookup(symbol)["symbol"], shares, money)
         return redirect("/")
     else:
         stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
         return render_template("sell.html", stocks=stocks)
-
-    CREATE TABLE history (username TEXT NOT NULL, month INTEGER NOT NULL, bos TEXT NOT NULL, date INTEGER,
-   ...>    year INTEGER,
-   ...>     company TEXT, nos INTEGER, price INTEGER);
