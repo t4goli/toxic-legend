@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+        <thead>
+            <tr>
+                <th>Stocks</th>
+                <th># of Shares</th>
+                <th>Current Price of Share</th>
+                <th>Total Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                        <td>{{ stock.company }}</td>
+                        <td>{{ num[stock.company] }}</td>
+                        <td>{{ cp[stock.company] }}</td>
+                        <td>{{ tv[stock.company] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
