@@ -45,7 +45,7 @@ def index():
     u = "trgoli44"
     ucc = db.execute("SELECT cash FROM users WHERE username = ?", u)
     all = db.execute("SELECT * FROM purchases WHERE username = ?", u)
-    stocks = db.execute("SELECT company FROM purchases WHERE username = ?", u)
+    stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
 
 
     return render_template("index.html", ucc=ucc[0]["cash"], all=all, stocks=stocks)
