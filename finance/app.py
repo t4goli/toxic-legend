@@ -194,9 +194,9 @@ def sell():
         if ((not symbol) or (int(shares) < 0) or (nosh < shares)):
             return apology("gurlll", 403)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
-        cash = 
+        cash = cash + shares*money
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
-        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
+        db.execute("UPDATE purchases SET )
         return redirect("/")
     else:
         return render_template("buy.html"
