@@ -148,12 +148,12 @@ def logout():
 def addcash():
     if request.method == "POST":
         cash = request.form.get("cash")
-        if (not cash) or (int(cash) < 0)
+        if (not cash) or (int(cash) < 0):
             return apology("GURL", 403)
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
         return redirect("/")
     else:
-        ret
+        return render_template("addcash.html")
 
 
 
