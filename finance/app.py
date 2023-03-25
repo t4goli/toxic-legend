@@ -45,7 +45,7 @@ def index():
     u = "trgoli44"
     ucc = db.execute("SELECT cash FROM users WHERE username = ?", u)
 
-    return render_template("index.html", ucc=ucc)
+    return render_template("index.html", ucc=ucc{})
 
 
 @app.route("/buy", methods=["GET", "POST"])
