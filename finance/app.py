@@ -190,7 +190,7 @@ def sell():
             money = lookup(symbol)["price"]
         except (TypeError):
             return apology("symbol does not exist", 403)
-        if ((not symbol) or (int(shares) < 0)):
+        if ((not symbol) or (int(shares) < 0) or ()):
             return apology("gurlll", 403)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
         if (int(shares)*money > cash[0]["cash"]):
