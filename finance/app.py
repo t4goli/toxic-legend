@@ -45,14 +45,16 @@ def index():
     u = "trgoli44"
     ucc = db.execute("SELECT cash FROM users WHERE username = ?", u)
     stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
+    nosh1 = []
     nosh = []
     i = 0
     for stock in stocks:
         p1 = stocks[i]["company"]
-        nosh.append = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND company = ?", u, p1)
+        nosh = db.execute("SELECT SUM(nos) FROM purchases WHERE username = ? AND company = ?", u, p1)
+        nosh1.append(nosh)
         i = i + 1
 
-    return render_template("index.html", ucc=ucc[0]["cash"], nos=nos, stocks=stocks)
+    return render_template("index.html", ucc=ucc[0]["cash"], nosh1=nosh1, stocks=stocks)
 
 
 @app.route("/buy", methods=["GET", "POST"])
