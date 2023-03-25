@@ -182,5 +182,23 @@ def register():
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
-    """Sell shares of stock"""
-    return apology("TODO")
+    u = "trgoli44"
+    if request.method == "POST":
+        symbol = request.form.get("symbol")
+        shares = request.form.get("shares")
+        try:
+            money = lookup(symbol)["price"]
+        except (TypeError):
+            return apology("symbol does not exist", 403)
+        if ((not symbol) or (int(shares) < 0)):
+            return apology("gurlll", 403)
+        cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
+        if (int(shares)*money > cash[0]["cash"]):
+            return apology("You're Poor", 403)
+        else:
+            cash = cash[0]["cash"] - (int(shares)*money)
+        db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
+        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
+        return redirect("/")
+    else:
+        return render_template("buy.html"
