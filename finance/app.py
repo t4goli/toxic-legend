@@ -44,8 +44,9 @@ def index():
     """Show portfolio of stocks"""
     u = "trgoli44"
     ucc = db.execute("SELECT cash FROM users WHERE username = ?", u)
+    
 
-    return render_template("index.html", ucc=ucc[0]["cash"])
+    return render_template("index.html", ucc=ucc[0]["cash"], )
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -67,7 +68,7 @@ def buy():
             return apology("You're Poor", 403)
         else:
             cash = cash[0]["cash"] - (int(shares)*money)
-        db.execute("UPDATE users SET cash = ? WHERE user = ?", cash, u)
+        db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
         return redirect("/")
     else:
