@@ -60,7 +60,7 @@ def index():
         gt = gt + tv[p1]
         i = i + 1
 
-    return render_template("index.html", ucc=round(ucc[0]["cash"],2), num=num, stocks=stocks, cp=cp, tv=tv, gt=round(gt, 2))
+    return render_template("index.html", ucc=round(ucc[0]["cash"], 2), num=num, stocks=stocks, cp=cp, tv=tv, gt=round(gt, 2))
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -82,8 +82,10 @@ def buy():
         else:
             cash = cash[0]["cash"] - (float(shares)*money)
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
-        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
-        db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", u, date.today().month, "bought", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
+        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)",
+                    u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
+        db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
+                    u, date.today().month, "bought", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
         return redirect("/")
     else:
         return render_template("buy.html")
@@ -144,6 +146,7 @@ def logout():
     # Redirect user to login form
     return redirect("/")
 
+
 @app.route("/addcash", methods=["GET", "POST"])
 def addcash():
     if request.method == "POST":
@@ -156,7 +159,6 @@ def addcash():
         return redirect("/")
     else:
         return render_template("addcash.html")
-
 
 
 @app.route("/quote", methods=["GET", "POST"])
@@ -212,8 +214,10 @@ def sell():
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
         cash = cash[0]["cash"] + float(shares)*money
         db.execute("UPDATE users SET cash = ? WHERE username = ?", cash, u)
-        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], (0-float(shares)))
-        db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", u, date.today().month, "sold", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
+        db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)",
+                    u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], (0-float(shares)))
+        db.execute("INSERT INTO history (username, month, bos, date, time, company, nos, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
+                    u, date.today().month, "sold", date.today().day, datetime.now(), lookup(symbol)["symbol"], shares, money)
         return redirect("/")
     else:
         stocks = db.execute("SELECT DISTINCT company FROM purchases WHERE username = ?", u)
