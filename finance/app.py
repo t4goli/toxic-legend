@@ -63,10 +63,10 @@ def buy():
         if ((not symbol) or (int(shares) < 0)):
             return apology("gurlll", 403)
         cash = db.execute("SELECT cash FROM users WHERE username = ?", u)
-        if (int(shares)*money > cash[u]):
+        if (int(shares)*money > cash[0]["cash"]):
             return apology("You're Poor", 403)
         else:
-            cash = cash - (int(shares)*money)
+            cash = cash[0]["cash"] - (int(shares)*money)
         db.execute("UPDATE users SET cash = ? WHERE user = ?", cash, u)
         db.execute("INSERT INTO purchases (username, month, date, year, company, nos) VALUES(?, ?, ?, ?, ?, ?)", u, date.today().month, date.today().day, date.today().year, lookup(symbol)["symbol"], shares)
         return redirect("/")
