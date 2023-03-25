@@ -1,4 +1,5 @@
-global u
+import math
+import os
 
 from datetime import datetime, timezone, date
 from helpers import apology, login_required, lookup, usd
@@ -8,8 +9,8 @@ from tempfile import mkdtemp
 from flask_session import Session
 from flask import Flask, flash, redirect, render_template, request, session
 from cs50 import SQL
-import math
-import os
+
+global u
 
 # Configure application
 app = Flask(__name__)
