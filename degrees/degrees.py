@@ -92,7 +92,7 @@ def shortest_path(source, target):
     If no possible path, returns None.
     """
      # Keep track of number of states explored
-    self.num_explored = 0
+    ne = 0
 
     # Initialize frontier to just the starting position
     start = Node(state=source, parent=None, action=None)
@@ -111,7 +111,7 @@ def shortest_path(source, target):
 
         # Choose a node from the frontier
         node = frontier.remove()
-        self.num_explored += 1
+        ne += 1
 
         # If node is the goal, then we have a solution
         if node.state == target:
