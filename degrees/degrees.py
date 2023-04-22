@@ -113,22 +113,6 @@ def shortest_path(source, target):
         node = frontier.remove()
         ne += 1
 
-        # If node is the goal, then we have a solution
-        if node.state == target:
-            l = []
-            movies = []
-            people = []
-            while node.parent is not None:
-                movies.append(node.action)
-                people.append(node.state)
-                node = node.parent
-            movies.reverse()
-            people.reverse()
-            for movie in movies:
-                for person in people:
-                    l.append((movie, person))
-            return l
-
         # Mark node as explored
         explored.add(node.state)
 
@@ -136,7 +120,23 @@ def shortest_path(source, target):
         for movie_id, person_id in neighbors_for_person(node.state):
             if not frontier.contains_state(person_id) and person_id not in explored:
                 child = Node(state=person_id, parent=node, action=movie_id)
-                frontier.add(child)
+                # If node is the goal, then we have a solution
+                if child.state == target:
+                l = []
+                movies = []
+                people = []
+                while node.parent is not None:
+                    movies.append(node.action)
+                    people.append(node.state)
+                    node = node.parent
+                movies.reverse()
+                people.reverse()
+                for movie in movies:
+                    for person in people:
+                        l.append((movie, person))
+                return l
+            frontier.add(child)
+
 
     # TODO
     raise NotImplementedError
