@@ -124,8 +124,10 @@ def shortest_path(source, target):
                     node = node.parent
                 movies.reverse()
                 people.reverse()
-                self.solution = (actions, cells)
-                return
+                for movie in movies
+                    for person in people
+                        l.append((movie, person))
+                return l
 
             # Mark node as explored
             self.explored.add(node.state)
