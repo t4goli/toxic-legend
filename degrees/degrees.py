@@ -91,7 +91,12 @@ def shortest_path(source, target):
 
     If no possible path, returns None.
     """
+    start = Node(state=self.start, parent=None, action=None)
+    frontier = StackFrontier()
+    frontier.add(start)
 
+    self.explored = set()
+    
     # TODO
     raise NotImplementedError
 
