@@ -92,51 +92,51 @@ def shortest_path(source, target):
     If no possible path, returns None.
     """
      # Keep track of number of states explored
-        self.num_explored = 0
+    self.num_explored = 0
 
-        # Initialize frontier to just the starting position
-        start = Node(state=source, parent=None, action=None)
-        frontier = QueueFrontier()
-        frontier.add(start)
+    # Initialize frontier to just the starting position
+    start = Node(state=source, parent=None, action=None)
+    frontier = QueueFrontier()
+    frontier.add(start)
 
-        # Initialize an empty explored set
-        self.explored = set()
+    # Initialize an empty explored set
+    self.explored = set()
 
-        # Keep looping until solution found
-        while True:
+    # Keep looping until solution found
+    while True:
 
-            # If nothing left in frontier, then no path
-            if frontier.empty():
-                raise Exception("no solution")
+        # If nothing left in frontier, then no path
+        if frontier.empty():
+            raise Exception("no solution")
 
-            # Choose a node from the frontier
-            node = frontier.remove()
-            self.num_explored += 1
+        # Choose a node from the frontier
+        node = frontier.remove()
+        self.num_explored += 1
 
-            # If node is the goal, then we have a solution
-            if node.state == target:
-                l = []
-                movies = []
-                people = []
-                while node.parent is not None:
-                    movies.append(node.action)
-                    people.append(node.state)
-                    node = node.parent
-                movies.reverse()
-                people.reverse()
-                for movie in movies
-                    for person in people
-                        l.append((movie, person))
-                return l
+        # If node is the goal, then we have a solution
+        if node.state == target:
+            l = []
+            movies = []
+            people = []
+            while node.parent is not None:
+                movies.append(node.action)
+                people.append(node.state)
+                node = node.parent
+            movies.reverse()
+            people.reverse()
+            for movie in movies:
+                for person in people:
+                    l.append((movie, person))
+            return l
 
-            # Mark node as explored
-            self.explored.add(node.state)
+        # Mark node as explored
+        self.explored.add(node.state)
 
-            # Add neighbors to frontier
-            for action, state in self.neighbors(node.state):
-                if not frontier.contains_state(state) and state not in self.explored:
-                    child = Node(state=state, parent=node, action=action)
-                    frontier.add(child)
+        # Add neighbors to frontier
+        for action, state in self.neighbors(node.state):
+            if not frontier.contains_state(state) and state not in self.explored:
+                child = Node(state=state, parent=node, action=action)
+                frontier.add(child)
 
     # TODO
     raise NotImplementedError
