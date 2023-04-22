@@ -126,6 +126,8 @@ def shortest_path(source, target):
                     l = []
                     while node.parent is not None:
                         l.append((node.action, node.state))
+                        node = child.parent
+                    l.reverse()
                     return l
             frontier.add(child)
 
