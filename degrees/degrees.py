@@ -129,7 +129,7 @@ def shortest_path(source, target):
                         node = child.parent
                     l.reverse()
                     return l
-            frontier.add(child)
+                frontier.add(child)
 
 
     # TODO
