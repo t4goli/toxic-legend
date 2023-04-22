@@ -114,15 +114,16 @@ def shortest_path(source, target):
             self.num_explored += 1
 
             # If node is the goal, then we have a solution
-            if node.state == self.goal:
-                actions = []
-                cells = []
+            if node.state == target:
+                l = []
+                movies = []
+                people = []
                 while node.parent is not None:
-                    actions.append(node.action)
-                    cells.append(node.state)
+                    movies.append(node.action)
+                    people.append(node.state)
                     node = node.parent
-                actions.reverse()
-                cells.reverse()
+                movies.reverse()
+                people.reverse()
                 self.solution = (actions, cells)
                 return
 
