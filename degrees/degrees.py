@@ -122,19 +122,19 @@ def shortest_path(source, target):
                 child = Node(state=person_id, parent=node, action=movie_id)
                 # If node is the goal, then we have a solution
                 if child.state == target:
-                l = []
-                movies = []
-                people = []
-                while node.parent is not None:
-                    movies.append(node.action)
-                    people.append(node.state)
-                    node = node.parent
-                movies.reverse()
-                people.reverse()
-                for movie in movies:
-                    for person in people:
-                        l.append((movie, person))
-                return l
+                    l = []
+                    movies = []
+                    people = []
+                    while node.parent is not None:
+                        movies.append(node.action)
+                        people.append(node.state)
+                        node = node.parent
+                    movies.reverse()
+                    people.reverse()
+                    for movie in movies:
+                        for person in people:
+                            l.append((movie, person))
+                    return l
             frontier.add(child)
 
 
